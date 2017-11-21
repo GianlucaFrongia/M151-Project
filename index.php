@@ -1,7 +1,17 @@
-<link href="dashboard/css/resume.min.css" rel="stylesheet">
-<script src="dashboard/js/resume.min.js"></script>
 <?php
 
-  include("dashboard/dashboard.php");
+  function Redirect($url, $permanent = false)
+	{
+			header('Location: ' . $url, true, $permanent ? 301 : 302);
+	
+			exit();
+	}
+	
+	if (1==1){
+		Redirect('./dashboard/dashboard.php', false);
+	} else {
+		Redirect('./login/login.php', false);
+	}
+	
 
 ?>
