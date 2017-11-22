@@ -7,7 +7,7 @@
 			exit();
 	}
 	
-	if (1==1){
+	if (!empty($_SESSION['login'])){
 		Redirect('./dashboard/dashboard.php', false);
 	} else {
 		Redirect('./login/login.php', false);
