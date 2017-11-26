@@ -43,7 +43,7 @@
 
 						<br/>
 						
-						<label for="inputEmail" class="sr-only">Benutzername</label>
+						<label for="inputEmail" class="sr-only">adsf</label>
 						<input type="text" id="username" name="f[username]" class="form-control" placeholder="Benutzername" required autofocus><br/>
 						
 						<label for="inputPassword" class="sr-only">Passwort</label>
