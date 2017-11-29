@@ -37,7 +37,7 @@
 			<div class="col-lg-4"></div>
 			<div class="col-lg-4">
 
-				<form class="form-signin" action="user.php" method="post">
+				<form name="register" class="form-signin" action="user.php" method="post">
 
 					<h2 class="form-signin-heading">Login</h2>
 
