@@ -1,17 +1,14 @@
 <?php
+
 	$_db_host = "localhost";
-	$_db_datenbank = "befit";
-	$_db_username = "";
+	$_db_database = "m151_project";
+	$_db_username = "root";
 	$_db_passwort = "";
 
-    $db = mysqli_connect($_db_host , $_db_datenbank, $_db_username, $_db_passwort);
+    $mysqli = mysqli_connect($_db_host, $_db_username, $_db_passwort, $_db_database);
     
-    if (!$db) {
-        die('Connect Error (' . mysqli_connect_errno() . ') '
-                . mysqli_connect_error());
+    if (!$mysqli) {
+        die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
     }
-    
-    
-    mysqli_close($db);
 
 ?>
