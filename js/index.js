@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    $("#sideNav").fadeIn("slow", function(){
+    $("#sideNav").animate({width:'toggle'},350, function(){
         $("#sideNavPic").fadeIn("slow", function(){
             $("#sideNavItem").slideDown("slow", function(){
                 $("#pageContent").fadeIn("slow");

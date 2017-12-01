@@ -1,5 +1,5 @@
 <div class="my-auto">
-          <img src="img/logo1500.png" class="img-responsive"/>
+          <img src="img/logo1500.png" class="img-responsive img-background"/>
           <h1 class="mb-0">Max
             <span class="text-primary">Mustermann</span>
           </h1>
