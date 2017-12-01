@@ -21,7 +21,7 @@
                         while($row = $result->fetch_assoc()) {
                             $link = '
                             <li class="nav-item">
-					<a class="nav-link js-scroll-trigger" href="'. $row["file_path"].'">'. $row["title"].'</a>
+					<a class="nav-link js-scroll-trigger" href="'. $row["file_path"].'">'. utf8_encode($row["title"]) .'</a>
                             </li>
                             ';
                             echo $link;
