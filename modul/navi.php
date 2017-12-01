@@ -1,15 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="display: none;">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Start Bootstrap</span>
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="" style="display: none;" id="sideNavPic">
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="display: none;" id="sideNavItem">
                 
                 <?php
                     

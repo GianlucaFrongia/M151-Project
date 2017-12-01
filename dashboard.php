@@ -38,7 +38,7 @@
     <div class="container-fluid p-0">
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-        <div id="pageContent">
+        <div id="pageContent" style="display: none;">
           
         </div>
       </section>

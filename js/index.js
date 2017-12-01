@@ -1,5 +1,13 @@
 $(document).ready(function(){
     
+    $("#sideNav").fadeIn("slow", function(){
+        $("#sideNavPic").fadeIn("slow", function(){
+            $("#sideNavItem").slideDown("slow", function(){
+                $("#pageContent").fadeIn("slow");
+            });
+        });
+    });
+    
     $("#pageContent").load("modul/start.php");
     
     $(".nav-link").each(function(){
