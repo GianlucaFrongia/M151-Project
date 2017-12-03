@@ -2,4 +2,8 @@
 	opacity: 0.1;
 	position: absolute;
 	z-index: -100;
+	display: none;
+	bottom: 0px;
+	right: 150px;
+	width: 500px;
 }

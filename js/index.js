@@ -3,7 +3,9 @@ $(document).ready(function(){
     $("#sideNav").animate({width:'toggle'},350, function(){
         $("#sideNavPic").fadeIn("slow", function(){
             $("#sideNavItem").slideDown("slow", function(){
-                $("#pageContent").fadeIn("slow");
+                $("#pageContent").fadeIn("slow", function(){
+                    $(".img-background").fadeIn("slow");    
+                });
             });
         });
     });
