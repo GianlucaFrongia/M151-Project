@@ -2,6 +2,7 @@
 
 	$_db_host = "localhost";
 	$_db_database = "m151_project";
+	$_db_database = "befit";
 	$_db_username = "root";
 	$_db_passwort = "";
 
