@@ -111,24 +111,6 @@
 
                 
         test_input($gender);
-
-        /*
-                                $handle = array();
-                                $email = array();
-                                $sql = "SELECT
-                                                      username,
-                                                      email
-                                            FROM
-                                                      users
-                                          ";
-
-                                $result = mysqli_query($sql) OR die("<pre></li>".$sql."</pre></li>".mysqli_error[]());
-                                while($row = mysqli_fetch_assoc($result)){
-                                            $username[] = $row['username'];
-                                            $email[] = $row['email'];
-
-                            }
-                            */
         if (!empty($error)) {
             echo "Fehler beim registrieren.";
             foreach ($error as $errors) {
