@@ -139,6 +139,8 @@
 
 
     if (isset($_POST['login'])){
+        require_once(__ROOT__.'/session.php'); 
+        
         $error = array();
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -168,7 +170,8 @@
                         $row = $result->fetch_assoc();
                         if(password_verify($password , $row['password'])){
                             header("/dashboard.php");
-                            echo "erfolgreich";
+                            start_session();
+                            set_session($row['id'], $row['username'], true, time());
                         } else {
                           echo  "Falscher Password";  
                         } 
