@@ -1,7 +1,7 @@
 <?php 
-    include("/Applications/XAMPP/xamppfiles/htdocs/M151-Project/database/database.php");
+    define('__ROOT__', dirname(dirname(__FILE__)));
+    require_once(__ROOT__.'/database/database.php'); 
     
-
     if (isset($_POST['register'])) {
         $error = array();
         $username = $_POST["username"];
@@ -47,6 +47,7 @@
                 $error[] = "<li>Dein Passwort muss mind. einen Grossbuchstaben enthalten </li>";
             }
         }
+
         if (empty($password)) {
             $error[] = "<li>Bitte dein Passwort eingeben</li>";
         }
