@@ -1,4 +1,6 @@
 <?php 
+$_SESSION['user'] = array();
+
 function start_session() {
 	session_start();
 	session_regenerate_id(true);
