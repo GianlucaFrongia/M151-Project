@@ -1,11 +1,14 @@
     <div class="container">
+	 <div id="error">
+
+</div>
 			<div class="row">
 				<div class="col-lg-4"></div>
 				<div class="col-lg-4">
 					<br/>
 					<img class="img-responsive center-block" src="images/headersmall.png"/>
 				
-					<form class="form-signin" name="login" action="user.php" method="post">
+					<form class="form-signin" name="login-form" id="login-form" method="post">
 						
 						<h2 class="form-signin-heading">Login</h2>
 
@@ -22,7 +25,7 @@
 								<button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Login</button>
 							</div>
 							<div class="col-lg-6">
-								<button class="btn btn-lg btn-primary btn-block" type="register">Register</button>
+								<button name="login-btn" id="login-btn" class="btn btn-lg btn-primary btn-block" type="submit" value"register">Register</button>
 							</div>
 						</div>
 						
@@ -32,7 +35,8 @@
 				<div class="col-lg-4"></div>
 			</div>
     </div> <!-- /container -->
-
-
-  </body>
-</html>
+	 <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="js/login.js"></script>

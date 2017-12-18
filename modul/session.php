@@ -7,6 +7,7 @@ function start_session() {
 	if (!empty($_SESSION['user']) && $_SESSION['user']['time'] < time() - 180) {
 		 session_destroy();
 		 session_start();
+		 session_regenerate_id(true);
 	}
 }
 
@@ -16,7 +17,7 @@ function set_session($id, $username, $loggedIn , $time){
 
 
 function destroy_session(){
-	$_SESSION =  array();
+	$_SESSION = array();
 	session_destroy();
 	header('login.php');
 }

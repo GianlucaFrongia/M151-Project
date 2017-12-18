@@ -1,9 +1,13 @@
+
 	<div class="container">
+		<div id="error">
+
+		</div>
 		<div class="row">
 			<div class="col-lg-4"></div>
 			<div class="col-lg-4">
 
-				<form name="register" class="form-signin" action="user.php" method="post">
+				<form id="register-form" name="register-form" class="form-signin" method="post">
 
 					<h2 class="form-signin-heading">Registrieren</h2>
 
@@ -12,7 +16,6 @@
 						<label for="username">Username</label>
 						<input type="text" id="username" name="username" class="form-control" placeholder="Benutzername" autofocus>
 					</div>
-					
 					<div class="form-group">
 						<label for="password">Password</label>
 						<input type="password" id="password" name="password" class="form-control" placeholder="password">
@@ -54,10 +57,9 @@
 					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="0"> Female
 					</label>
 				 </div>
-
 					<div class="row">
 						<div class="col-lg-6">
-							<button class="btn btn-lg btn-primary" name="register" type="submit" value="register">Register</button>
+							<button class="btn btn-lg btn-primary" name="register_btn" id="register_btn" type="submit" value="register">Register</button>
 						</div>
 					</div>
 
@@ -66,4 +68,9 @@
 			<div class="col-lg-4"></div>
 		</div>
 	</div>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="js/register.js"></script>
 	<!-- /container -->
