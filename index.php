@@ -2,6 +2,8 @@
 
 define('__ROOT__', dirname(__FILE__));
 require_once(__ROOT__.'/modul/session.php');
+start_session();
+
 if($_SESSION['user']['loggedIn'] == true){
 	header('Location: dashboard.php');
 } elseif($_SESSION['user']['id'] == ''){

@@ -1,5 +1,4 @@
 <?php 
-$_SESSION['user'] = array();
 
 function start_session() {
 	session_start();
@@ -19,7 +18,7 @@ function set_session($id, $username, $loggedIn , $time){
 function destroy_session(){
 	$_SESSION = array();
 	session_destroy();
-	header('login.php');
+	header('Location: login.php');
 }
 
 

@@ -29,10 +29,18 @@
   <body id="page-top">
     
     <?php
-    
+          include("modul/session.php");
+          start_session();
+          if($_SESSION['user']['loggedIn'] == true){
+          } elseif($_SESSION['user']['id'] == ''){
+            header('Location: login/register.php');
+          } else{
+            header('Location: login/login.php');
+          }	
       include("database/database.php");
       include("modul/navi.php");
-    
+
+
     ?>
 
 
