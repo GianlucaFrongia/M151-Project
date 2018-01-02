@@ -1,6 +1,6 @@
 var request;
 
-$("#login-form").submit(function (event) {
+$("#pw_change-form").submit(function (event) {
 	event.preventDefault();
 
 	if (request) {
@@ -16,7 +16,7 @@ $("#login-form").submit(function (event) {
 	$inputs.prop("disabled", true);
 
 	request = $.ajax({
-		url: "http://localhost/m151-project/login/login_validate.php",
+		url: "http://localhost/m151-project/login/pw_change_validate.php",
 		type: "post",
 		data: serializedData
 	});
