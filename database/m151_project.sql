@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 02. Jan 2018 um 14:13
--- Server-Version: 10.1.28-MariaDB
--- PHP-Version: 7.1.11
+-- Erstellungszeit: 02. Jan 2018 um 20:44
+-- Server-Version: 10.1.25-MariaDB
+-- PHP-Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,9 @@ CREATE TABLE `tb_modul` (
 INSERT INTO `tb_modul` (`ID`, `name`, `description`, `file_path`, `title`) VALUES
 (1, 'dashboard', NULL, 'modul/start.php', 'Dashboard'),
 (6, 'falscher Pfad', NULL, 'asdfasdf', 'FalscherPfad'),
-(7, 'Übung hinzufügen', NULL, 'modul/addexercise.php', 'Übung hinzufügen');
+(7, 'Übung hinzufügen', NULL, 'modul/addexercise.php', 'Übung hinzufügen'),
+(8, 'editprofile.php', 'Profil bearbeiten', 'modul/editProfile.php', 'Profil bearbeiten'),
+(9, 'logout.php', 'Ausloggen', 'modul/logout.php', 'Abmelden');
 
 -- --------------------------------------------------------
 
@@ -60,7 +62,8 @@ CREATE TABLE `tb_user` (
   `firstname` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `pbPath` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -87,14 +90,12 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT für Tabelle `tb_modul`
 --
 ALTER TABLE `tb_modul`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT für Tabelle `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
