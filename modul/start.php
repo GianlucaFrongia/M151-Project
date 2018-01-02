@@ -1,7 +1,8 @@
 <?php
-
-          include("session.php");
-
+ include("session.php");
+ 
+ 
+ 
 ?>
 <div class="my-auto">
           <img src="img/logo1500.png" class="img-responsive img-background"/>

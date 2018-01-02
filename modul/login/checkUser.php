@@ -28,7 +28,8 @@
             $row = $result->fetch_assoc();
             if (password_verify($password, $row['password'])) {
                 
-                //session eröffnen
+                session_start();
+				$_SESSION = array('login' => true,'user'  => array('username'  => $_POST['username']));
                 
             } else {
                 $error = $error . "Das angegebene Password ist falsch.<br/>";

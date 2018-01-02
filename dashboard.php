@@ -29,9 +29,9 @@
   <body id="page-top">
     
     <?php
-      
-      include("modul/session.php");
+    
       include("database/database.php");
+      include("modul/session.php");
       include("modul/navi.php");
 
 

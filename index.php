@@ -38,7 +38,7 @@
 			<div class="row">
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6">
-					
+					<br/>
 					<img class="img-fluid mx-auto d-block" src="img/logo500.png"/>
 					<div id="error" class="alert alert-danger" style="opacity: 0; min-height: 55px;"></div>
 					<div id="pageContent" style="display: none;">
