@@ -29,14 +29,8 @@
   <body id="page-top">
     
     <?php
-          include("modul/session.php");
-          start_session();
-          if($_SESSION['user']['loggedIn'] == true){
-          } elseif($_SESSION['user']['id'] == ''){
-            header('Location: login/register.php');
-          } else{
-            header('Location: login/login.php');
-          }	
+      
+      include("modul/session.php");
       include("database/database.php");
       include("modul/navi.php");
 
@@ -64,7 +58,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/dashboard.js"></script>
 
   </body>
 

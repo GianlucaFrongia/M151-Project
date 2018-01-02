@@ -77,7 +77,7 @@
 					<label class="form-check-label">
 					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="1"> Male
 					</label>
-				 </div>
+				</div>
 				 <div class="form-check form-check-inline">
 					<label class="form-check-label">
 					  <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="0"> Female

@@ -32,7 +32,6 @@
                     }
                 
                 ?>
-        <a href="login/loggout.php" name="logout" id="logout" class="btn btn-md btn-primary btn-block" type="submit" value"register">Loggout</a>
         </ul>
       </div>
     </nav>
