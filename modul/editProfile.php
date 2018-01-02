@@ -33,7 +33,7 @@
                 ?>
             </tbody>
         </table>
-        <a id="changePass" class="btn btn-lg btn-primary btn-block">Passwort ändern</a>
+        <a id="changePass" class="btn btn-lg btn-primary btn-block">Passwort ändern</a><br/><br/>
     </div>
     <div class="col-lg-6">
         <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
@@ -42,7 +42,7 @@
                 <a id="deletePic" class="btn btn-lg btn-primary btn-block">Bild löschen</a></br>
             </div>
             <div class="col-lg-6">
-                <a id="changePic" class="btn btn-lg btn-primary btn-block">Bild ändern</a>
+                <a id="changePic" class="btn btn-lg btn-primary btn-block">Bild ändern</a><br/>
             </div>
         </div>
     

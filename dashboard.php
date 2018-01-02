@@ -28,6 +28,10 @@
 
   <body id="page-top">
     
+    <div class="loadScreen dashloader" style="opacity: 0;">
+			<img class="img-responsive" id="loadingImg" src="img/loading.gif"/><span class="helper dashboardLoad"></span>
+		</div>
+    
     <?php
     
       include("database/database.php");
@@ -40,7 +44,7 @@
 
     <div class="container-fluid p-0">
 
-      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="section">
         <div id="pageContent" style="display: none;">
           
         </div>
