@@ -10,27 +10,27 @@ function goToLogin(){
         $('.loadScreen').fadeTo("fast", 1);
         $("#pageContent").load("modul/login.php", function(){
             $('.loadScreen').fadeTo("fast", 0, function(){
-                $("#pageContent").fadeIn("fast");  
+                $("#pageContent").fadeIn("fast");
             });
         });
     });
 }
 
 $("#register").click(function(){
-    
+
     event.preventDefault();
-    
+
     $("#error").fadeTo("fast", 0, function(){
-        
+
         var error = "";
-        
+
         var username = $("#fusername").val();
         var password = $("#fpassword").val();
         var password2 = $("#fpassword2").val();
         var firstname = $("#ffirstname").val();
         var lastname = $("#flastname").val();
         var email = $("#femail").val();
-        
+
         //Benutzernamen prüfen
         if(username.length > 30){
             error = error + "Der Benutzername ist zu lang (Max. 30 Zeichen).<br/>";
@@ -44,15 +44,15 @@ $("#register").click(function(){
             }
         }
         //Benutzernamen prüfen ende
-        
+
         //Passwörter püfen
-        
+
         var upperCase= new RegExp('[A-Z]');
         var lowerCase= new RegExp('[a-z]');
         var numbers = new RegExp('[0-9]');
         var emailAt = new RegExp('[@]');
         var emailDot = new RegExp('[.]');
-        
+
         if(password.length < 8){
             if(password.length == 0){
                 error = error + "Es wurde kein Passwort angegeben.<br/>";
@@ -61,7 +61,7 @@ $("#register").click(function(){
             }
         } else {
             if(password.match(upperCase) == null || password.match(lowerCase) == null || password.match(numbers) == null){
-                error = error + "Das Passwort aus Gross- sowie Kleinbuchstaben, Zahlen und Sonderzeichen bestehen.<br/>";
+                error = error + "Das Passwort muss aus Gross- sowie Kleinbuchstaben, Zahlen und Sonderzeichen bestehen.<br/>";
             } else {
                 if(password !== password2){
                     error = error + "Die beiden Passwörter stimmen nicht überein. </br>";
@@ -69,7 +69,7 @@ $("#register").click(function(){
             }
         }
         //Passwörter prüfen ende
-        
+
         //Vor- und Nachname prüfen
         if(firstname.length > 30){
             error = error + "Der Vorname ist zu lang (Max. 30 Zeichen).<br/>";
@@ -94,7 +94,7 @@ $("#register").click(function(){
             }
         }
         //Vor- und Nachname prüfen ende
-        
+
         //E-Mail überprüfen
         if(email.length > 50){
             error = error + "Die E-Mail Adresse ist zu lang (Max. 50 Zeichen).<br/>";
@@ -109,8 +109,8 @@ $("#register").click(function(){
         }
 
         //E-Mail überprüfen ende
-        
-        
+
+
         //Anfrage an Server schicken
         if(error){
             $("#error").html(error).fadeTo("slow", 1);
@@ -131,7 +131,7 @@ $("#register").click(function(){
                 }
             });
         }
-    
+
     });
-    
+
 });
