@@ -1,11 +1,22 @@
 <?php
  include("session.php");
+ 
+	$sql ="SELECT pbPath FROM tb_user WHERE username = '$username'";
+	$result = $mysqli->query($sql);
+ 
+ 
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$pbPath = $row["pbPath"];
+		}
+	}
+	
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" style="display: none;">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">F U C</span>
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="" style="display: none;" id="sideNavPic">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="modul/editProfile/<?php echo $pbPath; ?>" alt="" style="display: none;" id="sideNavPic">
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -1,11 +1,11 @@
 <?php
- include("session.php");
- include("../database/database.php");
+	include("session.php");
+	include("../database/database.php");
  
- $sql ="SELECT firstname, lastname, email, reg_date FROM tb_user WHERE username = '$username'";
- $result = $mysqli->query($sql);
+	$sql ="SELECT firstname, lastname, email, reg_date, pbPath FROM tb_user WHERE username = '$username'";
+	$result = $mysqli->query($sql);
  
- $firstname = "404";
+	$firstname = "404";
  
  if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()) {
@@ -16,6 +16,7 @@
 		<tr><td>E-Mail</td><td><input class="form-control" type="text" value="'. $row["email"] .'"/></td></tr>
 		<tr><td>Reg. Datum</td><td>'. $row["reg_date"] .'</td></tr>
 		';
+		$pbPath = $row["pbPath"];
 		$firstname = $row["firstname"];
 		}
 }
@@ -41,7 +42,7 @@
         <a id="changePass" class="btn btn-lg btn-primary btn-block">Passwort ändern</a><br/><br/>
     </div>
     <div class="col-lg-6">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="modul/editProfile/<?php echo $pbPath; ?>" alt="">
         <div class="row">
             <div class="col-lg-6">
                 <a id="deletePic" class="btn btn-lg btn-primary btn-block">Bild löschen</a></br>
@@ -52,8 +53,10 @@
         </div>
     
         <div id="picUploader" style="display: none;">
-            <input id="picData" type="file" size="50" accept="image/*"></br></br>
-            <a id="sendPic" class="btn btn-lg btn-primary btn-block">Bestätigen</a>
+			<form action="modul/editProfile/editEntry.php?toDo=sendpic" method="post" enctype="multipart/form-data">
+				<input name="picData" id="picData" type="file" size="50" accept="image/*" required></br></br>
+				<button id="sendPic" class="btn btn-lg btn-primary btn-block">Hochladen</a>
+			</form>
         </div>
         
     </div>
