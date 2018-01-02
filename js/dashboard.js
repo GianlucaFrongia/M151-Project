@@ -55,8 +55,11 @@ $(document).ready(function(){
                 if (href){
                     $("#pageContent").load(href, function(responseTxt,statusTxt){
 
-                        if(statusTxt == "error" || statusTxt == "404"){
-                            $("#pageContent").html("<br/><br/><div class='alert alert-danger'><strong>Fehler </strong> Seite enthält keinen gültigen Pfad. Bitte wenden Sie sich an einen <a href='mailto:elia.reutlinger@baloise.ch'>Administrator</a>.</div>");
+                        if(statusTxt == "error"){
+							$('.loadScreen').fadeTo("fast", 0, function(){
+								$("#pageContent").html("<br/><br/><div class='alert alert-danger'><strong>Fehler </strong> Seite enthält keinen gültigen Pfad. Bitte wenden Sie sich an einen <a href='mailto:mail@eliareutlinger.ch'>Administrator</a>.</div>");
+								$("#pageContent").fadeIn("fast");
+							});
                         } else {
                             $('.loadScreen').fadeTo("fast", 0, function(){
                                 $("#pageContent").fadeIn("fast", function(){

@@ -5,9 +5,24 @@
  $sql ="SELECT firstname, lastname, email, reg_date FROM tb_user WHERE username = '$username'";
  $result = $mysqli->query($sql);
  
+ $firstname = "404";
+ 
+ if ($result->num_rows > 0) {
+	while($row = $result->fetch_assoc()) {
+		$table = '
+		<tr><td>Benutzername</td><td>'. $username .'</td></tr>
+		<tr><td>Vorname</td><td><input class="form-control" type="text" value="'. $row["firstname"] .'"/></td></tr>
+		<tr><td>Nachname</td><td><input class="form-control" type="text" value="'. $row["lastname"] .'"/></td></tr>
+		<tr><td>E-Mail</td><td><input class="form-control" type="text" value="'. $row["email"] .'"/></td></tr>
+		<tr><td>Reg. Datum</td><td>'. $row["reg_date"] .'</td></tr>
+		';
+		$firstname = $row["firstname"];
+		}
+}
+ 
 ?>
 
-<h2>Profil von <span class="text-primary">Mustermann</span></h2>
+<h2>Profil von <span class="text-primary"><?php echo $firstname; ?></span></h2>
 
 <hr/>
 <br/>
@@ -17,19 +32,9 @@
         <table class="table table-hover table-responsive">
             <tbody>
                 <?php
-                    
-                    if ($result->num_rows > 0) {
-                        while($row = $result->fetch_assoc()) {
-                            $table = '
-                            <tr><td>Benutzername</td><td>'. $username .'</td></tr>
-                            <tr><td>Vorname</td><td><input class="form-control" type="text" value="'. $row["firstname"] .'"/></td></tr>
-                            <tr><td>Nachname</td><td><input class="form-control" type="text" value="'. $row["lastname"] .'"/></td></tr>
-                            <tr><td>E-Mail</td><td><input class="form-control" type="text" value="'. $row["email"] .'"/></td></tr>
-                            <tr><td>Reg. Datum</td><td>'. $row["reg_date"] .'</td></tr>
-                            ';
-                        }
-                        echo $table;
-                    }
+
+                    echo $table;
+
                 ?>
             </tbody>
         </table>

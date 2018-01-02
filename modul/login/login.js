@@ -52,9 +52,9 @@ $("#login").click(function(){
                     if(data){
                         $("#error").html(data).fadeTo("slow", 1);
                     } else {
-                        $("#pageContent").fadeOut("slow", function(){
+                        $("#pageContent").fadeOut("fast", function(){
                             $("#pageContent").html('<div class="alert alert-success"><strong>Erfolgreich </strong>eingeloggt!</div>');
-                            $("#pageContent").fadeIn("slow").delay(1000).fadeOut("slow", function(){
+                            $("#pageContent").fadeIn("slow").delay(500).fadeOut("slow", function(){
                                 $("body").fadeOut("slow", function(){
                                     window.location.replace("dashboard.php");
                                 });
