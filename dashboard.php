@@ -34,10 +34,9 @@
     
     <?php
     
-      include("database/database.php");
-      include("modul/session.php");
-      include("modul/navi.php");
-
+		include("database/database.php");
+		include("modul/session.php");
+		include("modul/navi.php");
 
     ?>
 
@@ -45,7 +44,7 @@
     <div class="container-fluid p-0">
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="section">
-        <div id="pageContent" style="display: none;">
+        <div id="pageContent" tab="<?php if(isset($_GET["tab"]) && $_GET["tab"] == "editProfile"){ echo "editProfile"; } else { echo "";} ?>" style="display: none;">
           
         </div>
       </section>

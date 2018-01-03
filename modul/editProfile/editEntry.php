@@ -1,56 +1,88 @@
 <?php
-	
+
 	include("./../session.php");
 	include("./../../database/database.php");
-	
-    $upload_folder = 'userpb/'; //Das Upload-Verzeichnis
-	$filename = pathinfo($_FILES['picData']['name'], PATHINFO_FILENAME);
-	$extension = strtolower(pathinfo($_FILES['picData']['name'], PATHINFO_EXTENSION));
-	
-	 
-	//Überprüfung der Dateiendung
-	$allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
-	if(!in_array($extension, $allowed_extensions)) {
-		die("Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt");
-	}
-	 
-	//Überprüfung der Dateigröße
-	$max_size = 20000*1024; //500 KB
-	if($_FILES['picData']['size'] > $max_size) {
-		die("Bitte keine Dateien größer 500kb hochladen");
-	}
-	 
-	//Überprüfung dass das Bild keine Fehler enthält
-	if(function_exists('exif_imagetype')) { //Die exif_imagetype-Funktion erfordert die exif-Erweiterung auf dem Server
-		$allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
-		$detected_type = exif_imagetype($_FILES['picData']['tmp_name']);
-		if(!in_array($detected_type, $allowed_types)) {
-			die("Nur der Upload von Bilddateien ist gestattet");
-		}
-	}
-	 
-	//Pfad zum Upload
-	$new_path = $upload_folder.$filename.'.'.$extension;
-	 
-	//Neuer Dateiname falls die Datei bereits existiert
-	if(file_exists($new_path)) { //Falls Datei existiert, hänge eine Zahl an den Dateinamen
-		$id = 1;
-		do {
-			$new_path = $upload_folder.$filename.'_'.$id.'.'.$extension;
-			$id++;
-		} while(file_exists($new_path));
-	}
-	 
-	//Alles okay, verschiebe Datei an neuen Pfad
-	move_uploaded_file($_FILES['picData']['tmp_name'], $new_path);
-	
-	$query = "UPDATE tb_user SET pbPath = ? WHERE username='$username'";
 
-    $stmt = $mysqli->prepare($query);
-    $stmt->bind_param("s", $new_path);
-    $stmt->execute();
-    $mysqli->close();
+	$error = "";
+	$toDo = "";
 	
-	echo 'Bild erfolgreich hochgeladen: <a href="'.$new_path.'">'.$new_path.'</a>';
+	if (isset($_POST["toDo"])){
+		$toDo = $_POST["toDo"];
+	} else {
+		echo ("Fehler in der Verarbeitung");
+	}
+	
+	if($toDo == "deletePic"){
+		
+		$query = "UPDATE tb_user SET pbPath = NULL WHERE username='$username'";
+		$stmt = $mysqli->prepare($query);
+		$stmt->execute();
+		$mysqli->close();
+		
+		
+	}
+	
+	if($toDo == "saveChanges"){
+	
+		$firstname = $_POST["firstname"];
+		$lastname = $_POST["lastname"];
+		$email = $_POST["email"];
+		
+		
+		
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
+		
+		//Vor- und Nachname prüfen
+		test_input($firstname);
+		if (!empty($firstname)) {
+			if (strlen($firstname) > 30) {
+				$error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
+			} elseif (strlen($firstname) < 2) {
+				$error = $error .  "Der Benutzername is zu kurz (Min 6 Zeichen). <br>";
+			}
+		} else {
+			$error = $error .  "Es wurde kein Benutzername angegeben. <br>";
+		}
+		
+		test_input($lastname);
+		if (!empty($lastname)) {
+			if (strlen($lastname) > 30) {
+				$error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
+			} elseif (strlen($lastname) < 2) {
+				$error = $error .  "Der Benutzername is zu kurz (Min 6 Zeichen). <br>";
+			}
+		} else {
+			$error = $error .  "Es wurde kein Benutzername angegeben. <br>";
+		}
+		//Vor- und Nachname prüfen ende
+		
+		//E-Mail prüfen
+		test_input($email);
+		if (!empty($email)) {
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				$error = $error . "Die angegebene E-Mail Adresse ist ungültig.<br>";
+			}
+		} else {
+			$error = $error . "Bitte E-mail Adresse angeben. <br>";
+		}
+		//E-Mail prüfen ende
+		
+		if($error){
+			echo $error;
+		} else {
+			$query = "UPDATE tb_user SET firstname = ?, lastname= ?, email= ? WHERE username='$username'";
+			$stmt = $mysqli->prepare($query);
+			$stmt->bind_param("sss", $firstname, $lastname, $email);
+			$stmt->execute();
+			$mysqli->close();
+		}
+		
+		
+	}
 
 ?>

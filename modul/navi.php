@@ -16,7 +16,7 @@
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">F U C</span>
         <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="modul/editProfile/<?php echo $pbPath; ?>" alt="" style="display: none;" id="sideNavPic">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<?php if($pbPath != NULL){ echo "modul/editProfile/" . $pbPath; } else { echo "img/profile.jpg";}?>" alt="" style="display: none;" id="sideNavPic">
         </span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -2,17 +2,39 @@
 	include("session.php");
 	include("../database/database.php");
  
-	$sql ="SELECT firstname, lastname FROM tb_user WHERE username = '$username'";
+	$sql = "SELECT firstname, lastname FROM tb_user WHERE username = '$username'";
+	$sql2 = "SELECT description FROM tb_motivations";
+	
 	$result = $mysqli->query($sql);
+	$result2 = $mysqli->query($sql2);
+	
+	
  
-	$firstname = "404";
- 
- if ($result->num_rows > 0) {
-	while($row = $result->fetch_assoc()) {
-		$firstname = $row["firstname"];
-		$lastname = $row["lastname"];
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$firstname = $row["firstname"];
+			$lastname = $row["lastname"];
 		}
-}
+	}
+	
+	$count = 0;
+	
+	if ($result2->num_rows > 0) {
+		while($row = $result2->fetch_assoc()) {
+			$count++;
+		}
+	}
+	
+	$limit = rand(1, $count);
+	$sql3 = "SELECT description FROM tb_motivations LIMIT $limit";
+	
+	$result3 = $mysqli->query($sql3);
+	
+	if ($result3->num_rows > 0) {
+		while($row = $result3->fetch_assoc()) {
+			$quote = utf8_encode($row["description"]);
+		}
+	}
  
  
 ?>
@@ -23,39 +45,5 @@
 	<div class="subheading mb-5">
 		3542 Einträge · 13.4 KG Umsatz · 267 Aktive Tage
 	</div>
-	<p class="mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-	<ul class="list-inline list-social-icons mb-0">
-		<li class="list-inline-item">
-			<a href="#">
-				<span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                </span>
-			</a>
-		</li>
-		<li class="list-inline-item">
-			<a href="#">
-				<span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                </span>
-			</a>
-		</li>
-		<li class="list-inline-item">
-			<a href="#">
-				<span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
-			</a>
-		</li>
-		<li class="list-inline-item">
-			<a href="#">
-				<span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-			</a>
-		</li>
-	</ul>
+	<p class="mb-5"><?php echo $quote; ?></p>
 </div>

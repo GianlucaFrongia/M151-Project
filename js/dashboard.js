@@ -41,8 +41,14 @@ $(document).ready(function(){
             });
         });
     });
+	
+    if($("#pageContent").attr("tab") == "editProfile"){
+		$("#pageContent").load("modul/editProfile.php");
+		$("#pageContent").attr("tab", "");
+	} else {
+		$("#pageContent").load("modul/start.php");
+	}
     
-    $("#pageContent").load("modul/start.php");
     
     $(".nav-link").each(function(){
         

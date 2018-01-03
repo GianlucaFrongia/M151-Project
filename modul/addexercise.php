@@ -1,3 +1,0 @@
-<?php
- include("session.php");
-?>
