@@ -1,5 +1,24 @@
 <?php
- include("session.php");
+
+    include("session.php");
+	include("../database/database.php");
+    
+    $exerciseList = "";
+    
+    $sql ="SELECT id, name FROM tb_exercise";
+	$result = $mysqli->query($sql);
+	
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+
+            $optionToList = '
+                <option value="'. $row["id"] .'">'. $row["name"] .'</option>
+            ';
+
+            $exerciseList = $exerciseList . $optionToList;
+		}
+	}
+
 ?>
 
 <h2>Meine <span class="text-primary">Pläne</span></h2>
@@ -28,34 +47,37 @@
 	</div>
 	<div class="row"><div class="col-lg-12"><hr/></div></div>
 	<div class="row">
-		<div class="col-lg-12">
-			<div class="card col-lg-12">
+		<div class="col-lg-12 allExercise">
+			<div exerciseListID="1" class="card col-lg-12 exercise">
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="form-group">
 							<label for="sel1">Übung:</label>
 							<select class="form-control" id="sel1">
-								<option>1</option>
-								<option>2</option>
-								<option>3</option>
-								<option>4</option>
+                                <option></option>
+								<?php if($exerciseList){echo $exerciseList;} else { echo "<option>Du hast noch keine Übungen definiert.</option>";} ?>
 							</select>
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
-							<label for="usr">Ausführungen:</label>
-							<input type="number" class="form-control" id="usr">
+							<label for="reps">Ausführungen:</label>
+							<input exerciseListID="1" type="number" class="form-control" id="reps">
 						</div>
 					</div>
 					<div class="col-lg-4">
 						<div class="form-group">
-							<label for="usr">Wiederholungen:</label>
-							<input type="number" class="form-control" id="usr">
+							<label for="sets">Wiederholungen:</label>
+							<input type="number" class="form-control" id="sets">
 						</div>
 					</div>
 				</div>
 			</div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <i class="fa fa-plus-square addExerciseForm" style="font-size: 40px;margin: 2px;" aria-hidden="true"></i><i class="fa fa-minus-square deleteExerciseForm" style="font-size: 40px;margin: 2px;" aria-hidden="true"></i>
+                </div>
+            </div>
 		</div>
 	</div>
 	<div class="row"><div class="col-lg-12"><hr/></div></div>
@@ -65,3 +87,4 @@
 		</div>
 	</div>
 </div>
+<script src="./modul/userPlan/userPlan.js"></script>
