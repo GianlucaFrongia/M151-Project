@@ -44,7 +44,7 @@
     <div class="container-fluid p-0">
 
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="section">
-        <div id="pageContent" tab="<?php if(isset($_GET["tab"]) && $_GET["tab"] == "editProfile"){ echo "editProfile"; } else { echo "";} ?>" style="display: none;">
+        <div id="pageContent" tab="<?php if(isset($_GET["tab"]) && $_GET["tab"] == "editProfile"){ echo "editProfile"; } else { echo "";} ?>" class="col-lg-12" style="display: none;">
           
         </div>
       </section>

@@ -123,10 +123,7 @@ $("#register").click(function(){
                     if(data){
                         $("#error").html(data).fadeTo("slow", 1);
                     } else {
-                        $("#pageContent").fadeOut("slow", function(){
-                            $("#pageContent").html('<div class="alert alert-success"><strong>Registriert!</strong> Sie können sich nun mit dem Benutzernamen "' + username + '" <a id="gotoLogin" style="cursor: pointer;" onclick="goToLogin()" class="alert-link">einloggen</a></div>');
-                            $("#pageContent").fadeIn("slow");
-                        });
+                        
                     }
                 }
             });

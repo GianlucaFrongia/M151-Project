@@ -26,13 +26,13 @@
 	}
 	
 	$limit = rand(1, $count);
-	$sql3 = "SELECT description FROM tb_motivations LIMIT $limit";
+	$sql3 = "SELECT title, description FROM tb_motivations LIMIT $limit";
 	
 	$result3 = $mysqli->query($sql3);
 	
 	if ($result3->num_rows > 0) {
 		while($row = $result3->fetch_assoc()) {
-			$quote = utf8_encode($row["description"]);
+			$quote = "<b>" . utf8_encode($row["title"]) . "</b><br/>" . utf8_encode($row["description"]);
 		}
 	}
  

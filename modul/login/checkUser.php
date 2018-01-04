@@ -29,7 +29,7 @@
             if (password_verify($password, $row['password'])) {
                 
                 session_start();
-				$_SESSION = array('login' => true,'user'  => array('username'  => $_POST['username']));
+				$_SESSION = array('login' => true,'user'  => array('username'  => $row['username'], 'id' => $row['id']));
                 
             } else {
                 $error = $error . "Das angegebene Password ist falsch.<br/>";
