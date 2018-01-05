@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Jan 2018 um 16:21
+-- Erstellungszeit: 05. Jan 2018 um 16:25
 -- Server-Version: 10.1.28-MariaDB
 -- PHP-Version: 7.1.11
 
@@ -286,9 +286,9 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `reg_date`, `pbPath`) VALUES
-(12, 'administrator', '$2y$11$pb5Cle1z2fSvnqqOo2YncetXacs.S1PykCuHsqS4Yz4RWa9Q49IRu', 'Elisa', 'Hesmaa', 'admin@test.com', '2018-01-05 13:00:09', 'userpb/Profilbild_19_12_2015.jpg'),
+(12, 'administrator', '$2y$11$pb5Cle1z2fSvnqqOo2YncetXacs.S1PykCuHsqS4Yz4RWa9Q49IRu', 'Elisa', 'Hesmaa', 'admin@test.com', '2018-01-05 15:25:04', ''),
 (13, 'testuser1', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Test1', 'User1', 'test@user.com', '2018-01-05 12:00:09', NULL),
-(14, 'testuser2', '$2y$11$NRdp5E0ViSoiedoXJhAlyOzf4sOeofWihrvMoAfaHZ8W2cdnk2njG', 'Test2', 'User2', 'test@user.com', '2018-01-05 12:08:27', 'userpb/me_3.jpg');
+(14, 'testuser2', '$2y$11$NRdp5E0ViSoiedoXJhAlyOzf4sOeofWihrvMoAfaHZ8W2cdnk2njG', 'Test2', 'User2', 'test@user.com', '2018-01-05 15:25:08', '');
 
 -- --------------------------------------------------------
 
