@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 04. Jan 2018 um 16:20
+-- Erstellungszeit: 05. Jan 2018 um 16:21
 -- Server-Version: 10.1.28-MariaDB
 -- PHP-Version: 7.1.11
 
@@ -42,10 +42,17 @@ CREATE TABLE `tb_exercise` (
 --
 
 INSERT INTO `tb_exercise` (`id`, `name`, `user_id`, `description`) VALUES
-(34, 'LiegestÃ¼tze', 12, 'Rauf und Runter mit den Armen'),
+(34, 'LiegestÃ¼tze', 12, 'Rauf und Runter mit den Adrmenasd'),
 (35, 'Kniebeugen', 12, 'Nach oben und unten mit OberkÃ¶rper'),
 (36, 'Beinschere Links', 12, 'Linkes Beim hoch und runter'),
-(37, 'Beinschere Rechts', 12, 'Rechtes Bein hoch und runter');
+(37, 'Beinschere Rechts', 12, 'Rechtes Bein hoch und runter'),
+(41, 'TestÃ¼bung 1', 13, 'TestÃ¼bung 1 TestÃ¼bung 1 TestÃ¼bung 1'),
+(42, 'TestÃ¼bung 2', 13, 'TestÃ¼bung 2 TestÃ¼bung 2 TestÃ¼bung 2'),
+(43, 'TestÃ¼bung 3', 13, 'TestÃ¼bung 3 TestÃ¼bung 3 TestÃ¼bung 3'),
+(44, 'TestTestÃ¼bung 1', 14, 'TestTestÃ¼bung 1 TestTestÃ¼bung 1 TestTestÃ¼bung 1'),
+(45, 'TestTestÃ¼bung 2', 14, 'TestTestÃ¼bung 2TestTestÃ¼bung 2TestTestÃ¼bung 2'),
+(46, 'TestTestÃ¼bung 3', 14, 'TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3'),
+(47, 'TestTestÃ¼bung 4TestTestÃ¼bung 4TestTestÃ¼bun', 14, 'TestTestÃ¼bung 4TestTestÃ¼bung 4TestTestÃ¼bung 4');
 
 -- --------------------------------------------------------
 
@@ -70,7 +77,43 @@ INSERT INTO `tb_exercisehasmuscle` (`id`, `exercise_id`, `muscle_id`) VALUES
 (50, 36, 11),
 (51, 36, 12),
 (52, 37, 11),
-(53, 37, 12);
+(53, 37, 12),
+(65, 41, 4),
+(66, 41, 7),
+(67, 42, 13),
+(68, 42, 15),
+(69, 43, 5),
+(70, 43, 7),
+(71, 43, 8),
+(72, 43, 9),
+(73, 43, 10),
+(74, 43, 11),
+(75, 43, 13),
+(76, 43, 14),
+(77, 43, 15),
+(78, 43, 16),
+(79, 44, 2),
+(80, 44, 9),
+(81, 44, 12),
+(82, 45, 5),
+(83, 45, 6),
+(84, 45, 10),
+(85, 46, 1),
+(86, 46, 2),
+(87, 46, 4),
+(88, 46, 5),
+(89, 46, 6),
+(90, 46, 7),
+(91, 46, 8),
+(92, 46, 9),
+(93, 46, 10),
+(94, 46, 11),
+(95, 46, 12),
+(96, 46, 13),
+(97, 46, 14),
+(98, 46, 15),
+(99, 46, 16),
+(100, 47, 1);
 
 -- --------------------------------------------------------
 
@@ -174,6 +217,17 @@ CREATE TABLE `tb_plan` (
   `creator` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Daten für Tabelle `tb_plan`
+--
+
+INSERT INTO `tb_plan` (`id`, `name`, `description`, `creator`) VALUES
+(1, 'Testplan 1', 'Testplan 1', 12),
+(2, 'Testplan 2', 'Testbeschreibung', 12),
+(3, 'Testplan 2', 'Testplan 2 Beschreibung', 12),
+(6, 'Testplan 2', 'Testplan 2Testplan 2Testplan 2', 13),
+(7, 'TestTestplan 1TestTestplan 1TestTestplan 1Tes', 'TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1', 14);
+
 -- --------------------------------------------------------
 
 --
@@ -187,6 +241,28 @@ CREATE TABLE `tb_planhasexercise` (
   `repetitions` int(11) NOT NULL,
   `sets` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `tb_planhasexercise`
+--
+
+INSERT INTO `tb_planhasexercise` (`id`, `plan_id`, `exercise_id`, `repetitions`, `sets`) VALUES
+(1, 1, 35, 101, 5),
+(2, 2, 34, 10, 13),
+(3, 2, 35, 111, 51),
+(4, 2, 36, 13, 41),
+(5, 2, 37, 10, 31),
+(7, 3, 34, 20, 3),
+(14, 6, 43, 1000, 1000),
+(15, 7, 47, 10, 20),
+(16, 7, 44, 20, 20),
+(17, 7, 44, 20, 20),
+(18, 7, 46, 50, 50),
+(19, 7, 47, 10, 23),
+(20, 7, 45, 11, 12),
+(21, 7, 45, 1234, 1234),
+(22, 7, 47, 1111, 11111),
+(23, 7, 45, 123123123, 123123123);
 
 -- --------------------------------------------------------
 
@@ -210,7 +286,21 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `reg_date`, `pbPath`) VALUES
-(12, 'administrator', '$2y$11$pb5Cle1z2fSvnqqOo2YncetXacs.S1PykCuHsqS4Yz4RWa9Q49IRu', 'Elisa', 'Hesmaa', 'admin@test.com', '2018-01-04 15:05:41', NULL);
+(12, 'administrator', '$2y$11$pb5Cle1z2fSvnqqOo2YncetXacs.S1PykCuHsqS4Yz4RWa9Q49IRu', 'Elisa', 'Hesmaa', 'admin@test.com', '2018-01-05 13:00:09', 'userpb/Profilbild_19_12_2015.jpg'),
+(13, 'testuser1', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Test1', 'User1', 'test@user.com', '2018-01-05 12:00:09', NULL),
+(14, 'testuser2', '$2y$11$NRdp5E0ViSoiedoXJhAlyOzf4sOeofWihrvMoAfaHZ8W2cdnk2njG', 'Test2', 'User2', 'test@user.com', '2018-01-05 12:08:27', 'userpb/me_3.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tb_userhasfavorite`
+--
+
+CREATE TABLE `tb_userhasfavorite` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `plan_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indizes der exportierten Tabellen
@@ -271,6 +361,14 @@ ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `tb_userhasfavorite`
+--
+ALTER TABLE `tb_userhasfavorite`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `plan_id` (`plan_id`);
+
+--
 -- AUTO_INCREMENT für exportierte Tabellen
 --
 
@@ -278,13 +376,13 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT für Tabelle `tb_exercise`
 --
 ALTER TABLE `tb_exercise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercisehasmuscle`
 --
 ALTER TABLE `tb_exercisehasmuscle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT für Tabelle `tb_modul`
@@ -305,10 +403,28 @@ ALTER TABLE `tb_muscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT für Tabelle `tb_plan`
+--
+ALTER TABLE `tb_plan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT für Tabelle `tb_planhasexercise`
+--
+ALTER TABLE `tb_planhasexercise`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT für Tabelle `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT für Tabelle `tb_userhasfavorite`
+--
+ALTER TABLE `tb_userhasfavorite`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints der exportierten Tabellen
@@ -339,6 +455,13 @@ ALTER TABLE `tb_plan`
 ALTER TABLE `tb_planhasexercise`
   ADD CONSTRAINT `tb_planhasexercise_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `tb_plan` (`id`),
   ADD CONSTRAINT `tb_planhasexercise_ibfk_2` FOREIGN KEY (`exercise_id`) REFERENCES `tb_exercise` (`id`);
+
+--
+-- Constraints der Tabelle `tb_userhasfavorite`
+--
+ALTER TABLE `tb_userhasfavorite`
+  ADD CONSTRAINT `tb_userhasfavorite_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`),
+  ADD CONSTRAINT `tb_userhasfavorite_ibfk_2` FOREIGN KEY (`plan_id`) REFERENCES `tb_plan` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

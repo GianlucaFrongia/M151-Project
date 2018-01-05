@@ -200,8 +200,7 @@ $(document).ready(function(){
                     }
                 });
             
-            });
-            
+            }); 
         
         });
     
@@ -242,20 +241,21 @@ $(document).ready(function(){
         
         $(this).click(function(){
             
-            console.log("triggered");
+            
         
             var exerciseID = $(this).attr("exerciseID");
             var newDescription = "";
             
             $(".fListdescription").each(function(){
                 
-                if($(".fListdescription").attr("exerciseID") == exerciseID){
-                    newDescription = $(".fListdescription").val();
+                if($(this).attr("exerciseID") == exerciseID){
+                    newDescription = $(this).val();
                 }
             
             });
             
             if(newDescription != ""){
+                console.log("triggered");
                 $.ajax({
                     method: "POST",
                     url: "./modul/exercise/modifyExercise.php",
@@ -264,6 +264,7 @@ $(document).ready(function(){
                         if(data){
                             $("#error").html(data).fadeTo("slow", 1);
                         } else {
+                            console.log("triggered2");
                         }
                     }
                 });
@@ -278,16 +279,11 @@ $(document).ready(function(){
                     }
                 
                 });
-                
-                
-                            
+                          
             });
-
-
-
+            
         });
         
-    
     });
     
 });

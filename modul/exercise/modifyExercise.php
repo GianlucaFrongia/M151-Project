@@ -30,6 +30,10 @@
         
         $exerciseID = $_POST["exercise"];
         
+        $stmt = $mysqli->prepare("DELETE FROM `tb_planhasexercise` WHERE `exercise_id` = ?;");
+        $stmt->bind_param("i",  $exerciseID);
+        $stmt->execute();
+        
         $stmt = $mysqli->prepare("DELETE FROM `tb_exercisehasmuscle` WHERE `exercise_id` = ?;");
         $stmt->bind_param("i",  $exerciseID);
         $stmt->execute();

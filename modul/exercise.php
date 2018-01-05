@@ -123,8 +123,7 @@
 </div>
 <hr/>
 <h3>Übung hinzufügen</h3>
-<div class="alert alert-danger" id="error" style="display: none;">
-</div>
+<div class="alert alert-danger" id="error" style="display: none;"></div>
 <div id="exerciseForm" class="card col-lg-12">
 	<div class="row">
 		<div class="col-lg-5">
