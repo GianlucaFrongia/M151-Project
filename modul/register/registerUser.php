@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     include("./../../database/database.php");
 
@@ -16,7 +16,7 @@
         $data = htmlspecialchars($data);
         return $data;
     }
-    
+
     //Vor- und Nachname prüfen
     test_input($firstname);
     if (!empty($firstname)) {
@@ -28,7 +28,7 @@
     } else {
         $error = $error .  "Es wurde kein Benutzername angegeben. <br>";
     }
-    
+
     test_input($lastname);
     if (!empty($lastname)) {
         if (strlen($lastname) > 30) {
@@ -40,13 +40,19 @@
         $error = $error .  "Es wurde kein Benutzername angegeben. <br>";
     }
     //Vor- und Nachname prüfen ende
-    
+
     //Benutzername prüfen
     test_input($username);
     if (!empty($username)) {
-        if (strlen($username) > 30) {
+      $sql ="SELECT username FROM tb_user where username = '$username'";
+    	$result = $mysqli->query($sql);
+      if($result->num_rows > 0){
+        $error = $error . "Username bereits vorhanden!";
+      }
+        elseif (strlen($username) > 30) {
             $error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
-        } elseif (strlen($username) < 6) {
+        }
+        elseif (strlen($username) < 6) {
             $error = $error .  "Der Benutzername is zu kurz (Min 6 Zeichen). <br>";
         }
     } else {
@@ -54,9 +60,9 @@
     }
     //Benutzername prüfen ende
 
-    //Passwörter prüfen 
+    //Passwörter prüfen
     test_input($password);
-    test_input($password2);  
+    test_input($password2);
     if (!empty($password)) {
         if (strlen($_POST["password"]) < '8') {
             $error = $error .  "Das Passwort muss mind. 8 Zeichen lang sein. <br>";
@@ -70,16 +76,16 @@
     } else {
         $error = $error . "Bitte dein Passwort eingeben<br>";
     }
-    
+
     if (empty($password2)) {
         $error = $error . "Bitte dein zweiten Passwort eingeben<br>";
     }
-        
+
     if ($password !== $password2) {
         $error = $error . "Die Passwörter stimmen nicht überein<br>";
     }
     //Passwörter prüfen ende
-    
+
     //E-Mail prüfen
     test_input($email);
     if (!empty($email)) {
@@ -91,7 +97,7 @@
     }
     //E-Mail prüfen ende
 
-                
+
     if ($error) {
         echo $error;
     } else {
@@ -100,7 +106,7 @@
             'cost' => 11,
             'salt' => $bytes
         ];
-          
+
         $passwordhash = password_hash($password, PASSWORD_BCRYPT, $options);
         $query = "INSERT INTO tb_user(username, password, email, firstname, lastname) VALUES (?,?,?,?,?)";
 
@@ -108,7 +114,7 @@
         $stmt->bind_param("sssss", $username, $passwordhash, $email, $firstname, $lastname);
         $stmt->execute();
         $mysqli->close();
-            
+
     }
 
 ?>
