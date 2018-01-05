@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Jan 2018 um 16:25
+-- Erstellungszeit: 05. Jan 2018 um 17:37
 -- Server-Version: 10.1.28-MariaDB
 -- PHP-Version: 7.1.11
 
@@ -46,13 +46,13 @@ INSERT INTO `tb_exercise` (`id`, `name`, `user_id`, `description`) VALUES
 (35, 'Kniebeugen', 12, 'Nach oben und unten mit OberkÃ¶rper'),
 (36, 'Beinschere Links', 12, 'Linkes Beim hoch und runter'),
 (37, 'Beinschere Rechts', 12, 'Rechtes Bein hoch und runter'),
-(41, 'TestÃ¼bung 1', 13, 'TestÃ¼bung 1 TestÃ¼bung 1 TestÃ¼bung 1'),
-(42, 'TestÃ¼bung 2', 13, 'TestÃ¼bung 2 TestÃ¼bung 2 TestÃ¼bung 2'),
-(43, 'TestÃ¼bung 3', 13, 'TestÃ¼bung 3 TestÃ¼bung 3 TestÃ¼bung 3'),
-(44, 'TestTestÃ¼bung 1', 14, 'TestTestÃ¼bung 1 TestTestÃ¼bung 1 TestTestÃ¼bung 1'),
-(45, 'TestTestÃ¼bung 2', 14, 'TestTestÃ¼bung 2TestTestÃ¼bung 2TestTestÃ¼bung 2'),
-(46, 'TestTestÃ¼bung 3', 14, 'TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3TestTestÃ¼bung 3'),
-(47, 'TestTestÃ¼bung 4TestTestÃ¼bung 4TestTestÃ¼bun', 14, 'TestTestÃ¼bung 4TestTestÃ¼bung 4TestTestÃ¼bung 4');
+(48, 'Kreuzheben', 13, 'Kreuzheben kann den Unterschied zwischen einer gut ausgeprÃ¤gten und einer herausragend gut ausgeprÃ¤gten RÃ¼ckenmuskulatur machen. '),
+(49, 'RÃ¼cken Flieger', 13, 'Dieses workout eignet sich hervorragend zur Aktivierung und zum Muskelaufbau ihrer Arme und Schultern. GekrÃ¤ftigt wird dabei vor allem der obere und mittlere RÃ¼cken.'),
+(50, 'BeingrÃ¤tsche', 13, 'Zum Abnehmen und Muskelaufbau das workout fÃ¼r den unteren KÃ¶rperbereich. Nicht nur der untere KÃ¶rper werden durch diese FitnessÃ¼bungen erwÃ¤rmt. Ihre gesamten Muskeln werden dabei leicht erwÃ¤rmt. Zudem aktivieren Sie ihr Herz-Kreislaufsystem.'),
+(51, 'BrÃ¼cke liegend', 13, 'Das Workout eignet sich gut zur KrÃ¤ftigung der Rumpfmuskulatur und sorgt fÃ¼r eine stabile KÃ¶rpermitte. Es verhilft ihnen zu einer aufrechten und stabilen Haltung. Zudem krÃ¤ftigt die BrÃ¼cke optimal ihren unteren RÃ¼cken, ihre Pomuskulatur und die Muskulatur der BeinrÃ¼ckseite.'),
+(52, 'Schulter heben', 14, 'Das Training zur StÃ¤rkung als auch zur ErwÃ¤rmung ihrer Muskulatur. GestÃ¤rkt wird mit dieser Ãœbung der obere Anteil des Trapezius-Muskels, also des Muskels der sich wie ein Trapez Ã¼ber den RÃ¼cken spannt. Der Nackenbereich wird gestÃ¤rkt gleichzeit straff. '),
+(53, 'KÃ¤fer', 14, 'Eine der guten FitnessÃ¼bungen fÃ¼r einen tollen Sixpack. Mit diesen FitnessÃ¼bungen bekommen Sie Ihr Gewicht in den Griff. Sie stÃ¤rken dabei den Bauch und beugen damit auch Haltungsproblemen vor, die oft durch die Schwierigkeit einer zu schwachen Rumpfmuskulatur entstehen.'),
+(54, 'Rumpfdrehung', 14, 'Mit diesen Ãœbungen beanspruchen Sie vor allem die seitliche Bauchmuskulatur zum Abnehmen und Muskelaufbau. ZusÃ¤tzlich ist ein kleiner Ball empfehlenswert, muss jedoch nich sein. Setzen Sie sich auf die Erde. Ihre Knie sind leicht vor ihnen angewinkelt. ');
 
 -- --------------------------------------------------------
 
@@ -78,42 +78,35 @@ INSERT INTO `tb_exercisehasmuscle` (`id`, `exercise_id`, `muscle_id`) VALUES
 (51, 36, 12),
 (52, 37, 11),
 (53, 37, 12),
-(65, 41, 4),
-(66, 41, 7),
-(67, 42, 13),
-(68, 42, 15),
-(69, 43, 5),
-(70, 43, 7),
-(71, 43, 8),
-(72, 43, 9),
-(73, 43, 10),
-(74, 43, 11),
-(75, 43, 13),
-(76, 43, 14),
-(77, 43, 15),
-(78, 43, 16),
-(79, 44, 2),
-(80, 44, 9),
-(81, 44, 12),
-(82, 45, 5),
-(83, 45, 6),
-(84, 45, 10),
-(85, 46, 1),
-(86, 46, 2),
-(87, 46, 4),
-(88, 46, 5),
-(89, 46, 6),
-(90, 46, 7),
-(91, 46, 8),
-(92, 46, 9),
-(93, 46, 10),
-(94, 46, 11),
-(95, 46, 12),
-(96, 46, 13),
-(97, 46, 14),
-(98, 46, 15),
-(99, 46, 16),
-(100, 47, 1);
+(101, 48, 10),
+(102, 48, 13),
+(103, 49, 6),
+(104, 49, 10),
+(105, 49, 13),
+(106, 49, 14),
+(107, 50, 11),
+(108, 50, 12),
+(109, 51, 6),
+(110, 51, 10),
+(111, 51, 12),
+(112, 52, 5),
+(113, 52, 6),
+(114, 52, 7),
+(115, 53, 5),
+(116, 53, 6),
+(117, 53, 7),
+(118, 53, 8),
+(119, 53, 10),
+(120, 53, 13),
+(121, 53, 15),
+(122, 54, 6),
+(123, 54, 7),
+(124, 54, 9),
+(125, 54, 10),
+(126, 54, 11),
+(127, 54, 12),
+(128, 54, 13),
+(129, 54, 14);
 
 -- --------------------------------------------------------
 
@@ -207,6 +200,26 @@ INSERT INTO `tb_muscle` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `tb_news`
+--
+
+CREATE TABLE `tb_news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `tb_news`
+--
+
+INSERT INTO `tb_news` (`id`, `title`, `content`, `date`) VALUES
+(1, 'Alpha Released', 'Die Alpha-Version ist nun mit dem einbau des \"News\"-Abschnittes auf dem Dashboard offiziell released.', '2018-01-05 15:40:18');
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `tb_plan`
 --
 
@@ -222,11 +235,13 @@ CREATE TABLE `tb_plan` (
 --
 
 INSERT INTO `tb_plan` (`id`, `name`, `description`, `creator`) VALUES
-(1, 'Testplan 1', 'Testplan 1', 12),
-(2, 'Testplan 2', 'Testbeschreibung', 12),
-(3, 'Testplan 2', 'Testplan 2 Beschreibung', 12),
-(6, 'Testplan 2', 'Testplan 2Testplan 2Testplan 2', 13),
-(7, 'TestTestplan 1TestTestplan 1TestTestplan 1Tes', 'TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1TestTestplan 1', 14);
+(8, 'Morgenroutine', 'Um jeden Morgen gleich Fit zu werden', 12),
+(9, 'Sprint-Workout', 'TÃ¤gliche Dosis an Testosteron und Anabolika.', 12),
+(10, 'Abendgymnastik', 'Nach diesem Plan sind alle Gelenke wieder in Takt und man kann gemÃ¼tlich schlafen.', 12),
+(11, 'Zu Hause Abnehmen', 'Mit diesen Ãœbungen kann man ganz einfach zu Hause abnehmen.', 13),
+(12, 'KrÃ¤ftiger RÃ¼cken', 'Mit dieser Ãœbung schÃ¼tzen Sie ihren RÃ¼cken vor Schmerzen', 13),
+(13, 'Extreme-Kondition', 'Durch den schnellen Wechsel der Aufgaben soll die Kondition gestÃ¤rkt werden.', 14),
+(14, 'Schlaf-Selbst-Hypnose', 'Nach dieser Ãœbung sind die Muskeln entspannt, was beim Einschlafen hilft.', 14);
 
 -- --------------------------------------------------------
 
@@ -247,22 +262,35 @@ CREATE TABLE `tb_planhasexercise` (
 --
 
 INSERT INTO `tb_planhasexercise` (`id`, `plan_id`, `exercise_id`, `repetitions`, `sets`) VALUES
-(1, 1, 35, 101, 5),
-(2, 2, 34, 10, 13),
-(3, 2, 35, 111, 51),
-(4, 2, 36, 13, 41),
-(5, 2, 37, 10, 31),
-(7, 3, 34, 20, 3),
-(14, 6, 43, 1000, 1000),
-(15, 7, 47, 10, 20),
-(16, 7, 44, 20, 20),
-(17, 7, 44, 20, 20),
-(18, 7, 46, 50, 50),
-(19, 7, 47, 10, 23),
-(20, 7, 45, 11, 12),
-(21, 7, 45, 1234, 1234),
-(22, 7, 47, 1111, 11111),
-(23, 7, 45, 123123123, 123123123);
+(24, 8, 34, 20, 3),
+(25, 8, 35, 40, 3),
+(26, 8, 36, 40, 1),
+(27, 8, 37, 40, 1),
+(28, 8, 36, 40, 1),
+(29, 8, 37, 40, 1),
+(30, 9, 34, 50, 2),
+(31, 9, 35, 50, 3),
+(32, 9, 36, 50, 1),
+(33, 9, 37, 50, 1),
+(34, 10, 36, 10, 1),
+(35, 10, 37, 10, 1),
+(36, 10, 36, 20, 1),
+(37, 10, 37, 20, 1),
+(38, 11, 48, 15, 3),
+(39, 11, 49, 60, 3),
+(40, 11, 50, 30, 3),
+(41, 12, 49, 60, 2),
+(42, 12, 51, 60, 2),
+(43, 13, 52, 30, 1),
+(44, 13, 53, 30, 1),
+(45, 13, 54, 30, 1),
+(46, 13, 52, 30, 1),
+(47, 13, 53, 30, 1),
+(48, 13, 54, 30, 1),
+(49, 13, 52, 60, 1),
+(50, 13, 53, 60, 1),
+(51, 13, 54, 60, 1),
+(52, 14, 53, 60, 3);
 
 -- --------------------------------------------------------
 
@@ -286,9 +314,9 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `reg_date`, `pbPath`) VALUES
-(12, 'administrator', '$2y$11$pb5Cle1z2fSvnqqOo2YncetXacs.S1PykCuHsqS4Yz4RWa9Q49IRu', 'Elisa', 'Hesmaa', 'admin@test.com', '2018-01-05 15:25:04', ''),
-(13, 'testuser1', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Test1', 'User1', 'test@user.com', '2018-01-05 12:00:09', NULL),
-(14, 'testuser2', '$2y$11$NRdp5E0ViSoiedoXJhAlyOzf4sOeofWihrvMoAfaHZ8W2cdnk2njG', 'Test2', 'User2', 'test@user.com', '2018-01-05 15:25:08', '');
+(12, 'administrator', '$2y$11$pb5Cle1z2fSvnqqOo2YncetXacs.S1PykCuHsqS4Yz4RWa9Q49IRu', 'Adam', 'Wecklenbuch', 'admin@test.com', '2018-01-05 16:35:44', 'userpb/59e45e5c3f6bfa00011229b7_Profilbild.jpg'),
+(13, 'testuser1', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Manuela', 'SalbeithÃ¨', 'test@user.com', '2018-01-05 16:33:56', 'userpb/manuela-kiener-foto1024x1024.jpg'),
+(14, 'testuser2', '$2y$11$NRdp5E0ViSoiedoXJhAlyOzf4sOeofWihrvMoAfaHZ8W2cdnk2njG', 'Markus', 'SchÃ¤deli', 'test@user.com', '2018-01-05 16:32:53', 'userpb/profilbild-xing-linkedin-46.jpg');
 
 -- --------------------------------------------------------
 
@@ -301,6 +329,21 @@ CREATE TABLE `tb_userhasfavorite` (
   `user_id` int(11) NOT NULL,
   `plan_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Daten für Tabelle `tb_userhasfavorite`
+--
+
+INSERT INTO `tb_userhasfavorite` (`id`, `user_id`, `plan_id`) VALUES
+(41, 14, 11),
+(42, 14, 10),
+(43, 14, 8),
+(44, 12, 13),
+(45, 12, 12),
+(46, 12, 14),
+(48, 13, 14),
+(49, 13, 10),
+(50, 13, 8);
 
 --
 -- Indizes der exportierten Tabellen
@@ -340,6 +383,12 @@ ALTER TABLE `tb_muscle`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indizes für die Tabelle `tb_news`
+--
+ALTER TABLE `tb_news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indizes für die Tabelle `tb_plan`
 --
 ALTER TABLE `tb_plan`
@@ -376,13 +425,13 @@ ALTER TABLE `tb_userhasfavorite`
 -- AUTO_INCREMENT für Tabelle `tb_exercise`
 --
 ALTER TABLE `tb_exercise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercisehasmuscle`
 --
 ALTER TABLE `tb_exercisehasmuscle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT für Tabelle `tb_modul`
@@ -403,16 +452,22 @@ ALTER TABLE `tb_muscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT für Tabelle `tb_news`
+--
+ALTER TABLE `tb_news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT für Tabelle `tb_plan`
 --
 ALTER TABLE `tb_plan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT für Tabelle `tb_planhasexercise`
 --
 ALTER TABLE `tb_planhasexercise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT für Tabelle `tb_user`
@@ -424,7 +479,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT für Tabelle `tb_userhasfavorite`
 --
 ALTER TABLE `tb_userhasfavorite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- Constraints der exportierten Tabellen
