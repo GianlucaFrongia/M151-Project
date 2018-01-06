@@ -227,7 +227,9 @@ $(document).ready(function(){
 								//Übung in der Liste ausblenden
 								$(".userExercise").each(function(){
 									if($(this).attr("exerciseID") == exercise){
-										$(this).slideUp("slow");
+										$(this).slideUp("slow",function(){
+											$(this).remove();	
+										});
 									}
 								});
 							}

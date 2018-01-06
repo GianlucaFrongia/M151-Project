@@ -319,7 +319,9 @@ $(document).ready(function(){
 							//Plan aus der Liste ausblenden
                             $(".userPlan").each(function(){
                                 if($(this).attr("planID") == planID){
-                                    $(this).slideUp("slow");
+                                    $(this).slideUp("slow",function(){
+										$(this).remove();	
+									});
                                 }
                             });
                         }

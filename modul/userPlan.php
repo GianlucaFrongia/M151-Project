@@ -316,7 +316,8 @@
                     </div>
                 </div>
                 <br/>
-            ';
+			';
+				
             //Plan an Variabel anhängen
             $planList = $planList . $ownPlan;
             
