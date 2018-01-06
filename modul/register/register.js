@@ -2,12 +2,7 @@ $(document).ready(function(){
 	
 	//Mögliche Errormeldung ausblenden
 	$("#error").fadeTo("slow", 0);
-	
-	//Beim Klicken auf den "Einloggen" Link Seite wechseln
-	$("#gotoLogin").click(function() {
-		goToLogin();
-	});
-	
+
 	//Zur Login-Seite wechseln
 	function goToLogin() {
 		
@@ -29,6 +24,11 @@ $(document).ready(function(){
 		});
 		
 	}
+	
+	//Beim Klicken auf den "Einloggen" Link Seite wechseln
+	$("#gotoLogin").click(function() {
+		goToLogin();
+	});
 	
 	//Beim klicken des "Registrieren"-Buttons soll der User registriert werden
 	$("#register").click(function() {
@@ -146,7 +146,7 @@ $(document).ready(function(){
 							//Wenn Registrierung erfolgreich, Seite ausblenden und Erfolgsnachricht einblenden.
 							//TODO Weiterleitung zum Login mit ausgefülltem "Benutzername" Feld
 							$("#pageContent").fadeOut("slow", function() {
-								$("#pageContent").html('<div class="alert alert-success"><strong>Registriert!</strong> Sie können sich nun mit dem Benutzernamen "' + username + '" <a id="gotoLogin" style="cursor: pointer;" onclick="goToLogin()" class="alert-link">einloggen</a></div>'^);
+								$("#pageContent").html('<div class="alert alert-success"><strong>Registriert!</strong> Sie können sich nun mit dem Benutzernamen "' + username + '" <a id="gotoLogin" style="cursor: pointer;" onclick="goToLogin()" class="alert-link"> einloggen</a>.</div>');
 								$("#pageContent").fadeIn("slow");
 							});
 						}
