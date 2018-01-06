@@ -196,6 +196,6 @@
 <h2>Alle <span class="text-primary">Pläne</span></h2>
 <hr/>
 
-<?php if($allPlans){echo $allPlans;} else {echo "Keine Pläne vorhanden."} ?>
+<?php if($allPlans){echo $allPlans;} else {echo "Keine Pläne vorhanden.";} ?>
 
 <script src="./modul/publicPlan/publicPlan.js"></script>

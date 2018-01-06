@@ -146,8 +146,21 @@ $(document).ready(function(){
 							//Wenn Registrierung erfolgreich, Seite ausblenden und Erfolgsnachricht einblenden.
 							//TODO Weiterleitung zum Login mit ausgefülltem "Benutzername" Feld
 							$("#pageContent").fadeOut("slow", function() {
-								$("#pageContent").html('<div class="alert alert-success"><strong>Registriert!</strong> Sie können sich nun mit dem Benutzernamen "' + username + '" <a id="gotoLogin" style="cursor: pointer;" onclick="goToLogin()" class="alert-link"> einloggen</a>.</div>');
-								$("#pageContent").fadeIn("slow");
+								$("#pageContent").html('<div class="alert alert-success"><strong>Registriert!</strong> Sie können sich nun mit dem Benutzernamen "' + username + '" einloggen.</div>');
+								$("#pageContent").fadeIn("slow").delay(500).fadeOut("slow", function(){
+									
+									$(".loadScreen").fadeTo("fast", 1);
+									$("#pageContent").load("modul/login.php", function() {
+										
+										//Ladegrafik ausblenden, Seite anzeigen, Benutzername-Feld füllen
+										$(".loadScreen").fadeTo("fast", 0, function() {
+											$("#fusername").val(username);
+											$("#pageContent").fadeIn("fast");
+										});
+										
+									});
+									
+								});
 							});
 						}
 					}
