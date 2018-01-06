@@ -1,14 +1,20 @@
 <?php
-
+	
+	//Session und Datenbankverbindung einbinden
 	include("session.php");
 	include("../database/database.php");
 	
+//-------------------------------------------------- | Muskel Checkboxes generieren sowie Optionlist für die bestehenden Übungen | ------------------------------------------------------
+	
+	//Variabeln initialisieren
 	$muscleList = "";
     $optionList = "";
-    $i = 0;
+	
+	//Daten aus Datenbank auslesen
 	$sql ="SELECT id, name FROM tb_muscle";
 	$result = $mysqli->query($sql);
 	
+	//Daten aus der Auslese in einer formatiert Variabel speichern
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			$entryToList = '
@@ -26,26 +32,30 @@
 		}
 	}
 	
-    
-    
-    
-    
+//-------------------------------------------------- | Übungen des Users generieren | ------------------------------------------------------
+	
+	//Variabeln initialisieren
     $listEntries = "";
     
+	//Daten zur Übung aus der Datenbank lesen
     $sql2 = "SELECT id, name, description FROM `tb_exercise` WHERE user_id = $userid";
     $result2 = $mysqli->query($sql2);
 	
+	//Übung generieren und in einer Variabel speichern
 	if ($result2->num_rows > 0) {
 		while($row = $result2->fetch_assoc()) {
             
+			//Variabeln auslesen bzw. initialisieren
             $exerciseID = $row["id"];
             $muscleListEntries = "";
-                        
+            
+			//Daten zu den in der Übung angegebenen Muskeln aus der Datenbank auslesen
             $sql3 = "SELECT mu.id, mu.name FROM tb_exercisehasmuscle AS exhamu
-                LEFT JOIN tb_muscle AS mu ON exhamu.muscle_id = mu.id
-                WHERE exhamu.exercise_id = $exerciseID";
+					LEFT JOIN tb_muscle AS mu ON exhamu.muscle_id = mu.id
+					WHERE exhamu.exercise_id = $exerciseID";
             $result3 = $mysqli->query($sql3);
             
+			//Muskeleintrag generieren und in einer Variabel speichern
             if ($result3->num_rows > 0) {
                 while($row3 = $result3->fetch_assoc()) {
                     $newMuscleListEntry = '
@@ -56,6 +66,7 @@
                 }
             }
             
+			//Übungseintrag formatieren, Daten einfügen (sowie die Daten aus der zuvor generierten Muskel Variabel und Optionlist)
 			$newListEntry = '
             <div exerciseID="'. $exerciseID .'" class="card col-lg-12 userExercise">
                 <div class="row">
@@ -102,15 +113,11 @@
             </div>
             <br/>';
             
+			//Eintrag an die Variabel anhängen
             $listEntries = $listEntries . $newListEntry;
             
 		}
 	}
-    
-
-    
-        
-
     
 ?>
 
@@ -124,12 +131,13 @@
 <hr/>
 <h3>Übung hinzufügen</h3>
 <div class="alert alert-danger" id="error" style="display: none;"></div>
-<div id="exerciseForm" class="card col-lg-12">
+<div class="alert alert-success" id="success" style="display: none;"></div>
+<div id="exerciseForm" class="card col-lg-12" style="padding-bottom: 0px;">
 	<div class="row">
-		<div class="col-lg-5">
+		<div class="col-lg-3">
 			<p class="text-center" style="margin-top: 10px;">Name der Übung:</p>
 		</div>
-		<div class="col-lg-7">
+		<div class="col-lg-9">
 			<input class="form-control toggleInput" id="fname" style="width: 100%;" type="text"/>
 		</div>
 	</div>
@@ -146,7 +154,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <a id="addExerciseButton" class="btn btn-lg btn-primary btn-block">Übung hinzufügen</a>
+                <a id="addExerciseButton" style="margin-bottom:5px;" class="btn btn-lg btn-primary btn-block">Übung hinzufügen</a>
             </div>
         </div>
     </div>

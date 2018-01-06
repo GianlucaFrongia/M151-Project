@@ -1,8 +1,10 @@
 <?php
-
+	
+	//Session starten & ID erneuern
 	session_start();
 	session_regenerate_id();
 	
+	//Prüfen, ob der User bereits eingeloggt ist. Falls ja, User an dashboard.php weiterleiten
 	if(isset($_SESSION['user'])){
 		header('Location: dashboard.php');
 	} 
@@ -44,7 +46,6 @@
 					<div id="pageContent" style="display: none;">
           
 					</div>
-		
 				</div>
 				<div class="col-lg-3"></div>
 			</div>

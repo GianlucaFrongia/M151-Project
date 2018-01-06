@@ -1,7 +1,9 @@
 <?php
 
+	//Datenbankverbindung einfügen
     include("./../../database/database.php");
 
+	//Variabeln initialisieren bzw. auslesen
     $error = "";
     $username = $_POST["username"];
 	$password = $_POST["password"];
@@ -10,6 +12,7 @@
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
 
+	//Werte trimmen und auf richtigkeit prüfen
     function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
@@ -17,7 +20,7 @@
         return $data;
     }
 
-    //Vor- und Nachname prüfen
+    //Vor- und Nachname prüfen (auf länge), und möglicherweise Fehlermeldung ausgeben
     test_input($firstname);
     if (!empty($firstname)) {
         if (strlen($firstname) > 30) {
@@ -41,26 +44,26 @@
     }
     //Vor- und Nachname prüfen ende
 
-    //Benutzername prüfen
+    //Benutzername prüfen (auf länge oder ob bereits vorhanden), und möglicherweise Fehlermeldung ausgeben
     test_input($username);
     if (!empty($username)) {
-      $sql ="SELECT username FROM tb_user where username = '$username'";
+		
+		$sql ="SELECT username FROM tb_user where username = '$username'";
     	$result = $mysqli->query($sql);
-      if($result->num_rows > 0){
-        $error = $error . "Username bereits vorhanden!";
-      }
-        elseif (strlen($username) > 30) {
+		if($result->num_rows > 0){
+			$error = $error . "Username bereits vorhanden!";
+		} elseif (strlen($username) > 30) {
             $error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
-        }
-        elseif (strlen($username) < 6) {
+        } elseif (strlen($username) < 6) {
             $error = $error .  "Der Benutzername is zu kurz (Min 6 Zeichen). <br>";
         }
+		
     } else {
         $error = $error .  "Es wurde kein Benutzername angegeben. <br>";
     }
     //Benutzername prüfen ende
 
-    //Passwörter prüfen
+    //Passwörter prüfen (auf Länge, Inhalt und Gleichheit), und möglicherweise Fehlermeldung ausgeben
     test_input($password);
     test_input($password2);
     if (!empty($password)) {
@@ -78,7 +81,7 @@
     }
 
     if (empty($password2)) {
-        $error = $error . "Bitte dein zweiten Passwort eingeben<br>";
+        $error = $error . "Bitte das Passwort wiederholen<br>";
     }
 
     if ($password !== $password2) {
@@ -86,7 +89,7 @@
     }
     //Passwörter prüfen ende
 
-    //E-Mail prüfen
+    //E-Mail prüfen (auf Länge und Inhalt), und möglicherweise Fehlermeldung ausgeben
     test_input($email);
     if (!empty($email)) {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -97,23 +100,26 @@
     }
     //E-Mail prüfen ende
 
-
+	//Wenn kein Error besteht, soll der User registriert werden
     if ($error) {
         echo $error;
     } else {
+		
+		//Salt generieren
         $bytes = random_bytes(22);
         $options = [
             'cost' => 11,
             'salt' => $bytes
         ];
 
+		//Passwort verschlüsseln
         $passwordhash = password_hash($password, PASSWORD_BCRYPT, $options);
+		
+		//User in der Datenbank registrieren
         $query = "INSERT INTO tb_user(username, password, email, firstname, lastname) VALUES (?,?,?,?,?)";
-
         $stmt = $mysqli->prepare($query);
         $stmt->bind_param("sssss", $username, $passwordhash, $email, $firstname, $lastname);
         $stmt->execute();
-        $mysqli->close();
 
     }
 

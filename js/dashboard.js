@@ -1,4 +1,5 @@
 
+//Sorgt für eine bessere Responsiveness der start.php Seite.
 function scale(){
     var actWidth = $(window).width();
     console.log("Scale Triggered with width: " + actWidth);
@@ -24,6 +25,7 @@ function scale(){
     }
 }
 
+//Bei jeder Änderung der Fenstergrösse wird die Funktion ausgeführt.
 $(window).resize(function(){
   scale();
 });
@@ -31,7 +33,7 @@ $(window).resize(function(){
 $(document).ready(function(){
     
     
-    
+    //Aufbau der Seite animieren
     $("#sideNav").animate({width:'toggle'},350, function(){
         $("#sideNavPic").fadeIn("slow", function(){
             $("#sideNavItem").slideDown("slow", function(){
@@ -42,6 +44,7 @@ $(document).ready(function(){
         });
     });
 	
+	//Inhalt der Seite füllen. Falls $_GET['tab'] = editProfile anderen Inhalt laden.
     if($("#pageContent").attr("tab") == "editProfile"){
 		$("#pageContent").load("modul/editProfile.php");
 		$("#pageContent").attr("tab", "");
@@ -49,11 +52,12 @@ $(document).ready(function(){
 		$("#pageContent").load("modul/start.php");
 	}
     
-    
+    //Links in der Navigation triggern
     $(".nav-link").each(function(){
         
         var href = ($(this).attr('href'));
         
+		//Bei einem Klick soll die Seite nicht neu geladen werden, sondern der Inhalt per Ajax abgerufen.
         $(this).click(function(){
             event.preventDefault();
             $("#pageContent").fadeOut("fast", function(){
@@ -62,11 +66,13 @@ $(document).ready(function(){
                     $("#pageContent").load(href, function(responseTxt,statusTxt){
 
                         if(statusTxt == "error"){
+							//Bei einem Fehler Error meldung ausgeben
 							$('.loadScreen').fadeTo("fast", 0, function(){
 								$("#pageContent").html("<br/><br/><div class='alert alert-danger'><strong>Fehler </strong> Seite enthält keinen gültigen Pfad. Bitte wenden Sie sich an einen <a href='mailto:mail@eliareutlinger.ch'>Administrator</a>.</div>");
 								$("#pageContent").fadeIn("fast");
 							});
                         } else {
+							//Inhalt der Seite anzeigen und Ladegrafik verschwinden lassen
                             $('.loadScreen').fadeTo("fast", 0, function(){
                                 $("#pageContent").fadeIn("fast", function(){
                                     scale();
@@ -75,6 +81,7 @@ $(document).ready(function(){
                         }
                     });
                 } else {
+					//Bei einem Fehler Error meldung ausgeben
                     $("#pageContent").html("<br/><br/><div class='alert alert-danger'><strong>Fehler </strong> Seite wurde noch nicht verlinkt. Bitte wenden Sie sich an einen <a href='mailto:elia.reutlinger@baloise.ch'>Administrator</a>.</div>");
                 }
             });

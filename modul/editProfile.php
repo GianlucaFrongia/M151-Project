@@ -1,25 +1,42 @@
 <?php
+
+	//Session und Datenbankverbindung einbinden
 	include("session.php");
 	include("../database/database.php");
  
-	$sql ="SELECT firstname, lastname, email, reg_date, pbPath FROM tb_user WHERE username = '$username'";
+	//Benötigte Daten aus der Datenbank lesen	
+	$sql ="SELECT firstname, lastname, email, reg_date, pbPath FROM tb_user WHERE id = '$userid'";
 	$result = $mysqli->query($sql);
- 
+	
+	//Wird ausgegeben, wenn der firstname nicht gefunden wird
 	$firstname = "404";
- 
- if ($result->num_rows > 0) {
-	while($row = $result->fetch_assoc()) {
-		$table = '
-		<tr><td>Benutzername</td><td>'. $username .'</td></tr>
-		<tr><td>Vorname</td><td><input class="form-control change" id="Ffirstname" type="text" value="'. $row["firstname"] .'"/></td></tr>
-		<tr><td>Nachname</td><td><input class="form-control change" id="Flastname" type="text" value="'. $row["lastname"] .'"/></td></tr>
-		<tr><td>E-Mail</td><td><input class="form-control change" id="Femail" type="text" value="'. $row["email"] .'"/></td></tr>
-		<tr><td>Reg. Datum</td><td>'. $row["reg_date"] .'</td></tr>
-		';
-		$pbPath = $row["pbPath"];
-		$firstname = $row["firstname"];
+	
+	//Daten in einer Tabelle darstellen
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			$table = '
+			<tr><td>Benutzername</td><td>'. $username .'</td></tr>
+			<tr><td>Vorname</td><td><input class="form-control change" id="Ffirstname" type="text" value="'. $row["firstname"] .'"/></td></tr>
+			<tr><td>Nachname</td><td><input class="form-control change" id="Flastname" type="text" value="'. $row["lastname"] .'"/></td></tr>
+			<tr><td>E-Mail</td><td><input class="form-control change" id="Femail" type="text" value="'. $row["email"] .'"/></td></tr>
+			<tr><td>Reg. Datum</td><td>'. $row["reg_date"] .'</td></tr>
+			';
+			
+			//Variabeln definieren
+			$pbPath = $row["pbPath"];
+			$firstname = $row["firstname"];
+			
 		}
-}
+	}
+	
+	//Mögliche Fehlermeldung definieren
+	$errorPic = "";
+	if(isset($_GET['errorPic'])){
+		$errorPic = '
+		<div class="alert alert-danger" id="errorPic" style="display: none;">'. $_GET['errorPic'] .'</div>
+		';
+	}
+
  
 ?>
 
@@ -32,11 +49,7 @@
         <h3>Benutzerinformationen bearbeiten</h3>
         <table class="table table-hover table-responsive">
             <tbody>
-                <?php
-
-                    echo $table;
-
-                ?>
+                <?php if($table){echo $table;} else {echo "Fehler beim auslesen der Daten.";} ?>
             </tbody>
         </table>
 		<a id="saveChangesButton" style="display: none;" class="btn btn-lg btn-primary btn-block">Änderungen speichern</a><br/>
@@ -53,6 +66,7 @@
 			</div>
 			<div class="col-lg-3"></div>
 		</div>
+		<?php if($errorPic){echo $errorPic;} ?>
         <div class="row">
             <div class="col-lg-6">
                 <a id="deletePic" class="btn btn-lg btn-primary btn-block">Bild löschen</a></br>
@@ -61,7 +75,6 @@
                 <a id="changePic" class="btn btn-lg btn-primary btn-block">Bild ändern</a><br/>
             </div>
         </div>
-    
         <div id="picUploader" style="display: none;">
 			<form action="modul/editProfile/editPic.php" method="post" enctype="multipart/form-data">
 				<input name="picData" id="picData" type="file" size="50" accept="image/*" required></br></br>

@@ -25,9 +25,7 @@
             
     <label for="femail">E-mail</label>
 	<input type="email" id="femail" name="femail" class="form-control" placeholder="max@gmail.com" required>
-    <br/>
-            
-			
+	
     <div class="row">
 		<div class="col-lg-12">
 			<br/><button class="btn btn-lg btn-primary btn-block" name="register" id="register" type="submit">Registrieren</button>
