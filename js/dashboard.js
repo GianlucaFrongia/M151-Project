@@ -58,7 +58,7 @@ $(document).ready(function(){
         var href = ($(this).attr('href'));
         
 		//Bei einem Klick soll die Seite nicht neu geladen werden, sondern der Inhalt per Ajax abgerufen.
-        $(this).click(function(){
+        $(this).click(function(event){
             event.preventDefault();
             $("#pageContent").fadeOut("fast", function(){
                 $('.loadScreen').fadeTo("fast", 1);

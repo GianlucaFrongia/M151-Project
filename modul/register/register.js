@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$("#error").fadeTo("slow", 0);
 
 	//Zur Login-Seite wechseln
-	function goToLogin() {
+	function goToLogin(event) {
 		
 		//Normales Buttonevent verhindern, Seite ausblenden
 		event.preventDefault();
@@ -31,7 +31,7 @@ $(document).ready(function(){
 	});
 	
 	//Beim klicken des "Registrieren"-Buttons soll der User registriert werden
-	$("#register").click(function() {
+	$("#register").click(function(event) {
 		
 		//Normales Buttonevent verhindern
 		event.preventDefault();
