@@ -1,13 +1,13 @@
 # M151-Project
 
 
-
-## Projektdokumentation 
-### Fitness Under Control
 <p align="center">
-  <img src="img/logo500.png">
+<h2 align="center"> Projektdokumentation </h2>
+  <h2 align="center"> Fitness Under Control </h2>
+ <img src="img/logo500.png">
 </p>
-##### Elia Reutlinger, Gianluca Frongia & Valentino Rusconi
+
+<h3 align="center"> Elia Reutlinger, Gianluca Frongia & Valentino Rusconi</h3> 
 
 ### Inhaltsverzeichnis
 
