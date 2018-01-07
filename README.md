@@ -5,7 +5,7 @@
 ## Projektdokumentation 
 ### Fitness Under Control
 
-![GitHub Logo](/img/logo500.png)
+![Logo](/img/logo500.png)
 
 ##### Elia Reutlinger, Gianluca Frongia & Valentino Rusconi
 
@@ -51,6 +51,7 @@ Ein User kann sich nur mit einer aktiven Session innerhalb der Anwendung bewegen
 Wie bereits in #3 angesprochen, werden die Usereingaben in unserer Anwendung einerseits Clientseitig sowie auch Serverseitig überprüft. Dies bildet einen vertraulichen Prüfungs-Mechanismus, welcher unter Anderem Script- und SQL-Injection verhindert, aber auch die Korrektheit der Daten in der Datenbank garantiert. Clientseitig wird diese Überprüfung durch JQuery und Javascript gelöst, wobei Serverseitig PHP zum Einsatz kommt.
 
 ## 6. Datenbankschema
+![Schema](/database/schema.png)
 
 ## 7. Verbindung zur Datenbank
 Die Verbindung zur Datenbank wird in einer separaten Datei definiert, und kann bei Bedarf von jedem Modul abgerufen werden. Dabei wird die Verbindung jeweils geöffnet, jedoch nicht durch einen spezifischen Befehl wieder geschlossen. Darauf konnten wir verzichten, da alle Datenbankabfragen durch PHP geregelt werden. PHP hat die Eigenschaft, nach vollendung seines Scripts die Datenbankverbindung von alleine zu schliessen. Dabei entsteht kein Sicherheitsrisiko, da das ganze Serverseitig abläuft.
