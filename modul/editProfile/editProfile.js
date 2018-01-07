@@ -67,9 +67,6 @@ $(document).ready(function(){
 		var lowerCase = new RegExp("[a-z]");
 		var numbers = new RegExp("[0-9]");
 			
-		console.log(password);
-		console.log(password2);
-		
 		//Passwörter püfen (auf Länge, Inhalt und Gleichheit), oder Errormeldung zurückgeben
 		if (password.length < 8) {
 			if (password.length == 0) {

@@ -15,7 +15,7 @@
 		while($row = $result3->fetch_assoc()) {
          
             $newsEntry = '<b>'. $row['title'] .'</b><p>'. $row['content'] .'</p><br/>';
-            $news = $news . $newsEntry;
+            $news = $news . utf8_encode($newsEntry);
             
         } 
     }

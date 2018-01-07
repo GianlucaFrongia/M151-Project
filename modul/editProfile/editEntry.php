@@ -149,7 +149,6 @@
 			$stmt = $mysqli->prepare($query);
 			$stmt->bind_param("sss", $firstname, $lastname, $email);
 			$stmt->execute();
-			$mysqli->close();
 		}
 		
 		

@@ -20,7 +20,7 @@
 						
 </form>
 					
-<p><br/><a id="gotoPassword" href="#">Passwort vergessen</a>?</p>
+<p><a id="gotoPassword" href="#">Passwort vergessen</a>?</p>
 				
 <script src="modul/login/login.js"></script>
     

@@ -28,9 +28,22 @@ $(document).ready(function(){
 	//Beim Klicken auf "Passwort vergessen" soll eine Errormeldung ausgegeben werden, da diese Fuktion noch nicht implementiert ist
 	$("#gotoPassword").click(function () {
 		
-		//Normales Buttonevent verhindern
+		//Normales Buttonevent verhindern, Seite ausblenden
 		event.preventDefault();
-		$("#error").html("<strong>Fehler: </strong> Diese Funktion ist noch nicht implementiert!").fadeTo("slow", 1).delay(2000).fadeTo("slow", 0);
+		$("#pageContent").fadeOut("fast", function(){
+			
+			//Ladegrafik einblenden und seite laden
+			$('.loadScreen').fadeTo("fast", 1);
+			$("#pageContent").load("modul/changePass.php", function(){
+				
+				//Ladegrafik ausblenden und seite anzeigen
+				$('.loadScreen').fadeTo("fast", 0, function(){
+					$("#pageContent").fadeIn("fast");  
+				});
+				
+			});
+			
+		});
 	
 	});
 	

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 05. Jan 2018 um 17:37
--- Server-Version: 10.1.28-MariaDB
--- PHP-Version: 7.1.11
+-- Erstellungszeit: 07. Jan 2018 um 06:18
+-- Server-Version: 10.1.25-MariaDB
+-- PHP-Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -23,6 +23,19 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `m151_project` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `m151_project`;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `tb_changpasstoken`
+--
+
+CREATE TABLE `tb_changpasstoken` (
+  `id` int(11) NOT NULL,
+  `code` int(11) NOT NULL,
+  `token` varchar(50) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -46,9 +59,9 @@ INSERT INTO `tb_exercise` (`id`, `name`, `user_id`, `description`) VALUES
 (35, 'Kniebeugen', 12, 'Nach oben und unten mit OberkÃ¶rper'),
 (36, 'Beinschere Links', 12, 'Linkes Beim hoch und runter'),
 (37, 'Beinschere Rechts', 12, 'Rechtes Bein hoch und runter'),
-(48, 'Kreuzheben', 13, 'Kreuzheben kann den Unterschied zwischen einer gut ausgeprÃ¤gten und einer herausragend gut ausgeprÃ¤gten RÃ¼ckenmuskulatur machen. '),
+(48, 'Kreuzheben', 13, 'Kreuzheben kann den Unterschied zwischen einer gut ausgeprÃ¤gten und einer herausragend gut ausgeprÃ¤gten RÃ¼ckenmuskulatur machen.'),
 (49, 'RÃ¼cken Flieger', 13, 'Dieses workout eignet sich hervorragend zur Aktivierung und zum Muskelaufbau ihrer Arme und Schultern. GekrÃ¤ftigt wird dabei vor allem der obere und mittlere RÃ¼cken.'),
-(50, 'BeingrÃ¤tsche', 13, 'Zum Abnehmen und Muskelaufbau das workout fÃ¼r den unteren KÃ¶rperbereich. Nicht nur der untere KÃ¶rper werden durch diese FitnessÃ¼bungen erwÃ¤rmt. Ihre gesamten Muskeln werden dabei leicht erwÃ¤rmt. Zudem aktivieren Sie ihr Herz-Kreislaufsystem.'),
+(50, 'BeingrÃ¤tsche', 13, 'Zum Abnehmen und Muskelaufbau das workout fÃ¼r den unteren KÃ¶rperberfffeich. Nicht nur der untere KÃ¶rper werden durch diese FitnessÃ¼bungen erwÃ¤rmt. Ihre gesamten Muskeln werden dabei leicht erwÃ¤rmt. Zudem aktivieren Sie ihr Herz-Kreislaufsystem.'),
 (51, 'BrÃ¼cke liegend', 13, 'Das Workout eignet sich gut zur KrÃ¤ftigung der Rumpfmuskulatur und sorgt fÃ¼r eine stabile KÃ¶rpermitte. Es verhilft ihnen zu einer aufrechten und stabilen Haltung. Zudem krÃ¤ftigt die BrÃ¼cke optimal ihren unteren RÃ¼cken, ihre Pomuskulatur und die Muskulatur der BeinrÃ¼ckseite.'),
 (52, 'Schulter heben', 14, 'Das Training zur StÃ¤rkung als auch zur ErwÃ¤rmung ihrer Muskulatur. GestÃ¤rkt wird mit dieser Ãœbung der obere Anteil des Trapezius-Muskels, also des Muskels der sich wie ein Trapez Ã¼ber den RÃ¼cken spannt. Der Nackenbereich wird gestÃ¤rkt gleichzeit straff. '),
 (53, 'KÃ¤fer', 14, 'Eine der guten FitnessÃ¼bungen fÃ¼r einen tollen Sixpack. Mit diesen FitnessÃ¼bungen bekommen Sie Ihr Gewicht in den Griff. Sie stÃ¤rken dabei den Bauch und beugen damit auch Haltungsproblemen vor, die oft durch die Schwierigkeit einer zu schwachen Rumpfmuskulatur entstehen.'),
@@ -106,7 +119,9 @@ INSERT INTO `tb_exercisehasmuscle` (`id`, `exercise_id`, `muscle_id`) VALUES
 (126, 54, 11),
 (127, 54, 12),
 (128, 54, 13),
-(129, 54, 14);
+(129, 54, 14),
+(178, 50, 8),
+(179, 50, 10);
 
 -- --------------------------------------------------------
 
@@ -127,10 +142,10 @@ CREATE TABLE `tb_modul` (
 --
 
 INSERT INTO `tb_modul` (`ID`, `name`, `description`, `file_path`, `title`) VALUES
-(1, 'dashboard', NULL, 'modul/start.php', 'Dashboard'),
+(1, 'dashboard', 'startseite', 'modul/start.php', 'Dashboard'),
 (2, 'Alle Pläne (Öffentlich)', 'Andere Pläne anschauen, Favorisieren', 'modul/publicPlan.php', 'Alle Pläne'),
 (3, 'Meine Pläne (Privat)', 'Plan erstellen, bearbeiten, löschen', 'modul/userPlan.php', 'Meine Pläne'),
-(5, 'Übung hinzufügen', NULL, 'modul/exercise.php', 'Meine Übungen'),
+(5, 'Übung hinzufügen', 'Übung hinzufügen', 'modul/exercise.php', 'Meine Übungen'),
 (8, 'editprofile.php', 'Profil bearbeiten', 'modul/editProfile.php', 'Profil bearbeiten'),
 (9, 'logout.php', 'Ausloggen', 'modul/logout.php', 'Abmelden');
 
@@ -215,7 +230,8 @@ CREATE TABLE `tb_news` (
 --
 
 INSERT INTO `tb_news` (`id`, `title`, `content`, `date`) VALUES
-(1, 'Alpha Released', 'Die Alpha-Version ist nun mit dem einbau des \"News\"-Abschnittes auf dem Dashboard offiziell released.', '2018-01-05 15:40:18');
+(1, 'Alpha Released', 'Die Alpha-Version ist nun mit dem einbau des \"News\"-Abschnittes auf dem Dashboard offiziell released.', '2018-01-05 15:40:18'),
+(2, 'Beta Released', 'In der Beta-Version der Applikation wurden einige Bugs behoben und weitere Funktionen hinzugefügt. Zur besseren Usability wurden einige Feedbacks ergänzt. Die Passwort-zurücksetzen Funktion im Profil ist nun voll funktionsfähig. Den kompletten Änderungsverlauf ist auf <a href=\"https://github.com/GianlucaFrongia/M151-Project/commits/master\">Github</a>  zu finden.', '2018-01-07 05:09:27');
 
 -- --------------------------------------------------------
 
@@ -314,9 +330,9 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `reg_date`, `pbPath`) VALUES
-(12, 'administrator', '$2y$11$pb5Cle1z2fSvnqqOo2YncetXacs.S1PykCuHsqS4Yz4RWa9Q49IRu', 'Adam', 'Wecklenbuch', 'admin@test.com', '2018-01-05 16:35:44', 'userpb/59e45e5c3f6bfa00011229b7_Profilbild.jpg'),
-(13, 'testuser1', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Manuela', 'SalbeithÃ¨', 'test@user.com', '2018-01-05 16:33:56', 'userpb/manuela-kiener-foto1024x1024.jpg'),
-(14, 'testuser2', '$2y$11$NRdp5E0ViSoiedoXJhAlyOzf4sOeofWihrvMoAfaHZ8W2cdnk2njG', 'Markus', 'SchÃ¤deli', 'test@user.com', '2018-01-05 16:32:53', 'userpb/profilbild-xing-linkedin-46.jpg');
+(12, 'awecklenbuch', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Adam', 'Wecklenbuch', 'admin@test.com', '2018-01-07 05:14:53', 'userpb/pb2.jpg'),
+(13, 'mansalthe', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Manuel', 'SalbeithÃ¨f', 'test@user.comr', '2018-01-07 05:15:17', 'userpb/pb1.jpg'),
+(14, 'schadmark', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Maria', 'SchÃ¤deli', 'test@user.com', '2018-01-07 05:15:36', 'userpb/pb3.jpg');
 
 -- --------------------------------------------------------
 
@@ -342,12 +358,19 @@ INSERT INTO `tb_userhasfavorite` (`id`, `user_id`, `plan_id`) VALUES
 (45, 12, 12),
 (46, 12, 14),
 (48, 13, 14),
-(49, 13, 10),
-(50, 13, 8);
+(63, 13, 10),
+(64, 13, 9);
 
 --
 -- Indizes der exportierten Tabellen
 --
+
+--
+-- Indizes für die Tabelle `tb_changpasstoken`
+--
+ALTER TABLE `tb_changpasstoken`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indizes für die Tabelle `tb_exercise`
@@ -422,68 +445,69 @@ ALTER TABLE `tb_userhasfavorite`
 --
 
 --
+-- AUTO_INCREMENT für Tabelle `tb_changpasstoken`
+--
+ALTER TABLE `tb_changpasstoken`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
 -- AUTO_INCREMENT für Tabelle `tb_exercise`
 --
 ALTER TABLE `tb_exercise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercisehasmuscle`
 --
 ALTER TABLE `tb_exercisehasmuscle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 --
 -- AUTO_INCREMENT für Tabelle `tb_modul`
 --
 ALTER TABLE `tb_modul`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_motivations`
 --
 ALTER TABLE `tb_motivations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_muscle`
 --
 ALTER TABLE `tb_muscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_news`
 --
 ALTER TABLE `tb_news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_plan`
 --
 ALTER TABLE `tb_plan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT für Tabelle `tb_planhasexercise`
 --
 ALTER TABLE `tb_planhasexercise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT für Tabelle `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT für Tabelle `tb_userhasfavorite`
 --
 ALTER TABLE `tb_userhasfavorite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 --
 -- Constraints der exportierten Tabellen
 --
+
+--
+-- Constraints der Tabelle `tb_changpasstoken`
+--
+ALTER TABLE `tb_changpasstoken`
+  ADD CONSTRAINT `tb_changpasstoken_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tb_user` (`id`);
 
 --
 -- Constraints der Tabelle `tb_exercise`
