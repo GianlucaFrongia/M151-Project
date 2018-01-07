@@ -1,9 +1,10 @@
 # M151-Project
 
 
-<p align="center">
+
 <h2 align="center"> Projektdokumentation </h2>
   <h2 align="center"> Fitness Under Control </h2>
+  <p align="center">
  <img src="img/logo500.png">
 </p>
 
