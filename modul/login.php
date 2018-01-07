@@ -11,7 +11,7 @@
 						
 	<div class="row">
 		<div class="col-lg-6">
-			<button class="btn btn-lg btn-primary btn-block" name="login" id="login">Login</button></br>
+			<button class="btn btn-lg btn-primary btn-block" name="login" id="login">Login</button><br/>
 		</div>
 		<div class="col-lg-6">
 			<a id="gotoRegister" class="btn btn-lg btn-primary btn-block">Registrieren</a>

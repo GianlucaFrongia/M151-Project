@@ -32,7 +32,7 @@
 	<body style="display: none;">
 		
 		<div class="loadScreen">
-			<span class="helper"></span><img class="img-responsive" id="loadingImg" src="img/loading.gif"/>
+			<span class="helper"></span><img alt="loading" class="img-responsive" id="loadingImg" src="img/loading.gif"/>
 		</div>
 		
 		<div class="container">
@@ -41,7 +41,7 @@
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6">
 					<br/>
-					<img class="img-fluid mx-auto d-block" src="img/logo500.png"/>
+					<img class="img-fluid mx-auto d-block" alt="logo" src="img/logo500.png"/>
 					<div id="error" class="alert alert-danger" style="opacity: 0; min-height: 55px;"></div>
 					<div id="pageContent" style="display: none;">
           

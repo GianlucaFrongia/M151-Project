@@ -71,14 +71,14 @@
 		<div class="row" id="profPic">
 			<div class="col-lg-3"></div>
 			<div class="col-lg-6">
-				<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<?php if($pbPath != NULL){ echo "modul/editProfile/" . $pbPath; } else { echo "img/profile.jpg";}?>" alt="">
+				<img class="img-fluid img-profile rounded-circle mx-auto mb-2" alt="Profilbild" src="<?php if($pbPath != NULL){ echo "modul/editProfile/" . $pbPath; } else { echo "img/profile.jpg";}?>" alt="">
 			</div>
 			<div class="col-lg-3"></div>
 		</div>
 		<?php if($errorPic){echo $errorPic;} ?>
         <div class="row">
             <div class="col-lg-6">
-                <a id="deletePic" class="btn btn-lg btn-primary btn-block">Bild löschen</a></br>
+                <a id="deletePic" class="btn btn-lg btn-primary btn-block">Bild löschen</a><br/>
             </div>
             <div class="col-lg-6">
                 <a id="changePic" class="btn btn-lg btn-primary btn-block">Bild ändern</a><br/>
@@ -86,8 +86,8 @@
         </div>
         <div id="picUploader" style="display: none;">
 			<form action="modul/editProfile/editPic.php" method="post" enctype="multipart/form-data">
-				<input name="picData" id="picData" type="file" size="50" accept="image/*" required></br></br>
-				<button id="sendPic" class="btn btn-lg btn-primary btn-block">Hochladen</a>
+				<input name="picData" id="picData" type="file" size="50" accept="image/*" required><br/><br/>
+				<button id="sendPic" class="btn btn-lg btn-primary btn-block">Hochladen</button>
 			</form>
         </div>
         

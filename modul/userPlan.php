@@ -379,7 +379,7 @@
 		</div>
 		<div class="row"><div class="col-lg-12"><hr/></div></div>
 		<div class="row">
-			<div class="col-lg-12 allExercise" id="">
+			<div class="col-lg-12 allExercise">
 				<div exerciseListID="1" id="exercise" style="margin-bottom: 10px; display: none;" class="card col-lg-12 exercise">
 					<div class="row">
 						<div class="col-lg-4">

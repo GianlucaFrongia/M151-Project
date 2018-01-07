@@ -33,3 +33,20 @@
 .fa-star {
     color: #F4D000;
 }
+.loadScreen.dashloader {
+    opacity: 0;
+}
+#error {
+    display: none;
+    min-height: 55px;
+}
+#pageContent {
+    display: none;
+}
+.col-lg-1 > span {
+    font-size: 50px;
+}
+
+.col-lg-12 > hr {
+    margin-top: 0;
+}
