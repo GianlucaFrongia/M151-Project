@@ -47,7 +47,7 @@ $(document).ready(function(){
 		
 	});
 	
-	//Da diese Funktion noch nicht eingebaut ist, soll eine Fehlermeldung angezeigt werden.
+	//Formular anzeigen wenn der Button gedrückt wird
 	$("#changePassButton").click(function(){
 		
 		$(this).slideUp("slow");
@@ -55,6 +55,7 @@ $(document).ready(function(){
 			
 	});
 	
+	//Button triggern
 	$("#newPassButton").click(function(){
 		
 		//Variabeln auslesen bzw. initialisieren
@@ -85,6 +86,7 @@ $(document).ready(function(){
 		}
 		//Passwörter prüfen ende
 		
+		//Wenn kein Error ausgegeben wird, neue Passwörter Serverseitig prüfen und in die Datenbank schreiben
 		if (error) {
 			$("#errorCatch").html(error).slideDown("slow", 1);
 		} else {

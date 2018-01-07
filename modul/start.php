@@ -9,9 +9,11 @@
 	//Variabeln initialisieren
     $news = "";
     
+	//News aus der Datenbank lesen
 	$sql3 = "SELECT * FROM `tb_news` ORDER BY date DESC";
 	$result3 = $mysqli->query($sql3);
     if ($result3->num_rows > 0) {
+		//Jeden Eintrag an eine Variabel anhängen
 		while($row = $result3->fetch_assoc()) {
          
             $newsEntry = '<b>'. $row['title'] .'</b><p>'. $row['content'] .'</p><br/>';
