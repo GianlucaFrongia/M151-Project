@@ -250,7 +250,7 @@ $(document).ready(function(){
 				//Übungs ID auslesen
 				var exerciseID = $(this).attr("exerciseID");
 				
-				$(".savebutton").each(function(){
+				$(".saveChangesButton").each(function(){
 					
 					//Richtige Übung wählen
 					if($(this).attr("exerciseID") == exerciseID){
@@ -272,7 +272,7 @@ $(document).ready(function(){
 		});
 	
 		//Beim betätigen des "Speichern" Buttons sollen die Änderungen in die Datenbank geschrieben werden
-		$(".savebutton").each(function(){
+		$(".saveChangesButton").each(function(){
 			
 			$(this).click(function(){
 				
@@ -302,7 +302,10 @@ $(document).ready(function(){
 								$("#error").html(data).fadeTo("slow", 1);
 							} else {
 								//Button-Erfolgsmeldung anzeigen und ausblenden
-								$("a", buttonEntity).html("Änderungen gespeichert!").delay(1000).slideUp("slow", function(){
+								buttonEntity.html("Änderungen gespeichert!").css("background-color", "#0b9c00").delay(1000).slideUp("slow", function(){
+									
+									//Button-Text zurücksetzen
+									buttonEntity.html("Änderungen speichern").css("background-color", "#00336B");
 									
 									//Textfeldgrösse wieder normalisieren
 									$(".fListdescription").each(function(){
@@ -317,7 +320,7 @@ $(document).ready(function(){
 					});
 					
 				} else {
-					//TODO Fehlermeldung implementieren
+					buttonEntity.html("Bitte Beschreibung angeben").css("background-color", "#ff4040");
 				}
 				
 			});

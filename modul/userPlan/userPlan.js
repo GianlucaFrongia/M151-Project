@@ -73,17 +73,22 @@ $(document).ready(function(){
                     listReps = $(".reps", this).val();
                     
 					//Wenn keine Wiederholungen angegeben sind, den Wert auf 1 setzen
-                    if(!listSets){
+                    if(!listSets || listSets < 1){
                         listSets = "1";
+                    }
+					
+					//Wenn keine Ausführungen angegeben sind, Wert auf 1 setzen
+					if(!listReps || listReps < 1){
+                        listReps = "1";
                     }
                     
 					//Array aus den ausgelesenen Variabeln erstellen
                     var all =  [listExercise, listReps, listSets];
                     
 					//Wenn alle Angaben ausgefüllt sind, den Array "all" an den "exercises" Array anfügen
-                    if(listSets > 0 && listExercise){
+                    if(listExercise && listExercise != "Du hast noch keine Übungen definiert."){
                         exercises.push(all);
-                    }
+                    } 
 
                 }
             
@@ -152,7 +157,7 @@ $(document).ready(function(){
 						$("#planFormContent").slideUp("slow");
 						
 						//Erfolgsmeldung anzeigen und Seite neu laden, damit der Plan korrekt in der Liste erscheint
-						$("#success").html("Übung wurde hinzugefügt!").fadeTo("slow", 1).delay(1000).fadeTo("slow", 0,function(){
+						$("#success").html("Plan wurde hinzugefügt!").fadeTo("slow", 1).delay(1000).fadeTo("slow", 0,function(){
 							$("#pageContent").load("modul/userPlan.php");	
 						});
 						
@@ -243,16 +248,21 @@ $(document).ready(function(){
                         listSets = $(".listSets", this).val();
                         listReps = $(".listReps", this).val();
                         
-						//Wenn Wiederholungen Leer ist, Wert auf 1 setzen
-                        if(!listSets){
-                            listSets = "1";
-                        }
+                        //Wenn keine Wiederholungen angegeben sind, den Wert auf 1 setzen
+						if(!listSets || listSets < 1){
+							listSets = "1";
+						}
+						
+						//Wenn keine Ausführungen angegeben sind, Wert auf 1 setzen
+						if(!listReps || listReps < 1){
+							listReps = "1";
+						}
                         
 						//Werte in einen Array schreiben
                         var all =  [planhasexID, listReps, listSets];
                         
 						//Wenn alle Werte vorhanden sind, Array "all" an den "newExercises" Array anhängen
-                        if(listSets > 0 && listReps > 0 && planhasexID){
+                        if(planhasexID){
                             newExercises.push(all);
                         }
     
@@ -278,13 +288,18 @@ $(document).ready(function(){
                             $("#error").html(data).fadeTo("slow", 1);
                         } else {
 							//Erfolgsmeldung ausgeben und Button ausblenden
-							buttonEntity.html("Änderungen gespeichert!").delay(1000).slideUp("slow");
+							buttonEntity.html("Änderungen gespeichert!").css("background-color", "#0b9c00").delay(1000).slideUp("slow",function(){
+							
+								//Button-Text zurücksetzen
+								buttonEntity.html("Änderungen speichern").css("background-color", "#00336B");	
+							
+							});
                         }
                     }
                 });
 				
             } else {
-				//TODO Fehlermeldung implementieren
+				buttonEntity.html("Bitte Beschreibung angeben").css("background-color", "#ff4040");
 			}
   
         });

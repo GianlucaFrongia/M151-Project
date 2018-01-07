@@ -78,9 +78,9 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 Beschreibung: <br> <textarea exerciseID="'. $exerciseID .'" id="" style="height: 80%;margin-top: 0px; margin-bottom: 0px;" class="form-control fListdescription">'. $row["description"] .'</textarea><br/>
-                                <div class="row savebutton" exerciseID="'. $exerciseID .'" style="display: none;">
+                                <div class="row savebutton" exerciseID="'. $exerciseID .'">
                                     <div class="col-lg-12">
-                                        <a exerciseID="'. $exerciseID .'" class="btn btn-lg btn-primary btn-block saveChangesButton">Änderungen speichern</a><br/>
+                                        <a exerciseID="'. $exerciseID .'" style="display: none;" class="btn btn-lg btn-primary btn-block saveChangesButton">Änderungen speichern</a><br/>
                                     </div>
                                 </div>
                             </div>
