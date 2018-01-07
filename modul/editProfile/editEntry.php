@@ -14,6 +14,72 @@
 	} else {
 		$error = $error . "Fehler in der Verarbeitung<br/>";
 	}
+
+	//Passwort ändern
+	if($toDo == "changePass"){
+		
+		//Variabeln auslesen
+		$password = $_POST['password'];
+		$password2 = $_POST['password2'];
+		
+		//Werte trimmen und auf Richtigkeit prüfen
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+		}
+		
+		//Passwörter prüfen (auf Länge, Inhalt und Gleichheit), und möglicherweise Fehlermeldung ausgeben
+		test_input($password);
+		test_input($password2);
+		if (!empty($password)) {
+			if (strlen($_POST["password"]) < '8') {
+				$error = $error .  "Das Passwort muss mind. 8 Zeichen lang sein. <br>";
+			} elseif (!preg_match("#[0-9]+#", $password)) {
+				$error = $error .  "Das Passwort muss mind. eine Nummer enthalten. <br>";
+			} elseif (!preg_match("#[A-Z]+#", $password)) {
+				$error = $error .  "Dein Passwort muss mind. einen Grossbuchstaben enthalten. <br>";
+			} elseif (!preg_match("#[a-z]+#", $password)) {
+				$error = $error .  "Dein Passwort muss mind. einen Kleinbuchstaben enthalten. <br>";
+			}
+		} else {
+			$error = $error . "Bitte dein Passwort eingeben<br>";
+		}
+	
+		if (empty($password2)) {
+			$error = $error . "Bitte das Passwort wiederholen<br>";
+		}
+	
+		if ($password !== $password2) {
+			$error = $error . "Die Passwörter stimmen nicht überein<br>";
+		}
+		//Passwörter prüfen ende
+		
+		//Wenn kein Error besteht, soll das Passwort geändert werden
+		if ($error) {
+			echo $error;
+		} else {
+			
+			//Salt generieren
+			$bytes = random_bytes(22);
+			$options = [
+				'cost' => 11,
+				'salt' => $bytes
+			];
+	
+			//Passwort verschlüsseln
+			$passwordhash = password_hash($password, PASSWORD_BCRYPT, $options);
+			
+			//Neues Passwort in der Datenbank updaten.
+			$query = "UPDATE tb_user SET password = ? WHERE id=$userid";
+			$stmt = $mysqli->prepare($query);
+			$stmt->bind_param("s", $passwordhash);
+			$stmt->execute();
+	
+		}
+		
+	}
 	
 	//Bild entfernen (Dabei wird das Bild nicht gelöscht, sondern nur die Verlinkung aus der Datenbank entfernt)
 	if($toDo == "deletePic"){

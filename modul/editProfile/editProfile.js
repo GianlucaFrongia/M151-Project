@@ -50,9 +50,69 @@ $(document).ready(function(){
 	//Da diese Funktion noch nicht eingebaut ist, soll eine Fehlermeldung angezeigt werden.
 	$("#changePassButton").click(function(){
 		
-		$("#errorCatch").html("Diese Funktion wurde noch nicht implementiert.");
-		$("#errorCatch").slideDown("slow").delay("3000").slideUp("slow");
+		$(this).slideUp("slow");
+		$('.changePassForm').slideDown("slow");
+			
+	});
+	
+	$("#newPassButton").click(function(){
 		
+		//Variabeln auslesen bzw. initialisieren
+		var password = $("#FnewPass").val();
+		var password2 = $("#FnewPass2").val();
+		var error = "";
+		
+		//Variabeln zur Überprüfung definieren
+		var upperCase = new RegExp("[A-Z]");
+		var lowerCase = new RegExp("[a-z]");
+		var numbers = new RegExp("[0-9]");
+			
+		console.log(password);
+		console.log(password2);
+		
+		//Passwörter püfen (auf Länge, Inhalt und Gleichheit), oder Errormeldung zurückgeben
+		if (password.length < 8) {
+			if (password.length == 0) {
+				error = error + "Es wurde kein Passwort angegeben.<br/>";
+			} else {
+				error = error + "Das Passwort muss mindestens 8 Zeichen enthalten.<br/>";
+			}
+		} else {
+			if (password.match(upperCase) == null || password.match(lowerCase) == null || password.match(numbers) == null) {
+				error = error + "Das Passwort muss aus Gross- sowie Kleinbuchstaben, Zahlen und Sonderzeichen bestehen.<br/>";
+			} else {
+				if (password !== password2) {
+					error = error + "Die beiden Passwörter stimmen nicht überein. </br>";
+				}
+			}
+		}
+		//Passwörter prüfen ende
+		
+		if (error) {
+			$("#errorCatch").html(error).slideDown("slow", 1);
+		} else {
+			
+			$("#errorCatch").slideUp("slow", 0);
+			$.ajax({
+				method: "POST",
+				url: "./modul/editProfile/editEntry.php",
+				data: {toDo:"changePass", password: password, password2: password2},
+				success: function(data) {
+					if (data) {
+						//Falls Daten zurückgegeben werden, Meldung ausgeben
+						$("#errorCatch").html(data).slideDown("slow", 1);
+					} else {
+						//Wenn die Änderung erfolgreich war, Erfolgsmeldung zurückgeben
+						$("#changePassButton").html("Passwort geändert!").css("background-color", "#0b9c00").slideDown("slow");
+						$('.changePassForm').slideUp("slow");
+						
+						
+					}
+				}
+			});
+			
+		}
+	
 	});
 	
 	//Bei einem Klick auf den "Änderungen Speichern" Button wird ein Ajax-Call ausgeführt

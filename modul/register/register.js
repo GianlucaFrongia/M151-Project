@@ -144,7 +144,6 @@ $(document).ready(function(){
 							$("#error").html(data).fadeTo("slow", 1);
 						} else {
 							//Wenn Registrierung erfolgreich, Seite ausblenden und Erfolgsnachricht einblenden.
-							//TODO Weiterleitung zum Login mit ausgefülltem "Benutzername" Feld
 							$("#pageContent").fadeOut("slow", function() {
 								$("#pageContent").html('<div class="alert alert-success"><strong>Registriert!</strong> Sie können sich nun mit dem Benutzernamen "' + username + '" einloggen.</div>');
 								$("#pageContent").fadeIn("slow").delay(500).fadeOut("slow", function(){

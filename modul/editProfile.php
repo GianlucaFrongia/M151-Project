@@ -56,6 +56,15 @@
 		<div class="alert alert-danger" id="errorCatch" style="display: none;">
 			<strong>Fehler</strong> Indicates a dangerous or potentially negative action.
 		</div>
+		<div class="changePassForm" style="display: none;">
+			<table class="table table-hover table-responsive">
+				<tbody>
+					<tr><td>Neues Passwort</td><td><input class="form-control" id="FnewPass" type="password"/></td></tr>
+					<tr><td>Passwort bestätigen</td><td><input class="form-control" id="FnewPass2" type="password"/></td></tr>
+				</tbody>
+			</table>
+			<a id="newPassButton" class="btn btn-lg btn-primary btn-block">Bestätigen</a><br/><br/>
+		</div>
         <a id="changePassButton" class="btn btn-lg btn-primary btn-block">Passwort ändern</a><br/><br/>
     </div>
     <div class="col-lg-6">
