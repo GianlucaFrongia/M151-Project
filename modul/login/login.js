@@ -4,7 +4,7 @@ $(document).ready(function(){
 	$("#error").fadeTo("slow", 0);
 	
 	//Beim Klicken des "Registrieren" Buttons soll das Formular geladen werden
-	$("#gotoRegister").click(function () {
+	$("#gotoRegister").click(function (event) {
 		
 		//Normales Buttonevent verhindern, Seite ausblenden
 		event.preventDefault();
@@ -26,7 +26,7 @@ $(document).ready(function(){
 	});
 	
 	//Beim Klicken auf "Passwort vergessen" soll eine Errormeldung ausgegeben werden, da diese Fuktion noch nicht implementiert ist
-	$("#gotoPassword").click(function () {
+	$("#gotoPassword").click(function (event) {
 		
 		//Normales Buttonevent verhindern, Seite ausblenden
 		event.preventDefault();
@@ -48,7 +48,7 @@ $(document).ready(function(){
 	});
 	
 	//Beim klicken auf "Login" soll der User eingeloggt werden
-	$("#login").click(function(){
+	$("#login").click(function(event){
 		
 		//Normales Buttonevent verhindern, mögliche Errormeldung ausblenden
 		event.preventDefault();
