@@ -22,6 +22,14 @@ Wir bieten eine Lösung welche dir die Möglichkeit gibt deine Trainingspläne o
 		<meta name="author" content="Elia Reutlinger, Valentino Rusconi, Gianluca Frongia">
 
 		<title>F.U.C - Login/Register</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="img/ico/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/ico/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/ico/favicon-16x16.png">
+		<link rel="manifest" href="img/ico/manifest.json">
+		<link rel="mask-icon" href="img/ico/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="img/ico/favicon.ico">
+		<meta name="msapplication-config" content="img/ico/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
 
 		<!-- Bootstrap core CSS -->
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
