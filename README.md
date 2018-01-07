@@ -4,9 +4,9 @@
 
 ## Projektdokumentation 
 ### Fitness Under Control
-
-![Logo](/img/logo500.png)
-
+<p align="center">
+  <img src="img/logo500.png">
+</p>
 ##### Elia Reutlinger, Gianluca Frongia & Valentino Rusconi
 
 ### Inhaltsverzeichnis
