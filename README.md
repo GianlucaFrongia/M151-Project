@@ -2,24 +2,27 @@
 
 
 
-Projektdokumentation 
-Fitness Under Control
+## Projektdokumentation 
+### Fitness Under Control
 
+![GitHub Logo](/img/logo500.png)
 
-Elia Reutlinger, Gianluca Frongia & Valentino Rusconi
+##### Elia Reutlinger, Gianluca Frongia & Valentino Rusconi
 
-Inhaltsverzeichnis
+### Inhaltsverzeichnis
 
 1. Inhalt des Projektes	
-2. Registrierung und Login-Prozess	
-3. Datensicherheit sowie Script- und SQL-Injection	
-4. Session-Handling	
-5. Client- und Serverseitige Validierung	
-6. Datenbankschema	
-7. Verbindung zur Datenbank	
-8. Behandlung von zusätzlichen Daten	
-9. Usability	
-10. Errorhandling	
+1. Registrierung und Login-Prozess 
+1. Datensicherheit sowie Script- und SQL-Injection  
+1. Session-Handling	
+1. Client- und Serverseitige Validierung 
+1. Datenbankschema 
+1. Verbindung zur Datenbank 
+1. Behandlung von zusätzlichen Daten 	
+1. Usability 
+1. Errorhandling 
+
+
 
 
 ## 1. Inhalt des Projektes
