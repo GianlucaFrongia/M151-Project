@@ -88,10 +88,10 @@ $(document).ready(function(){
 		
 		//Wenn kein Error ausgegeben wird, neue Passwörter Serverseitig prüfen und in die Datenbank schreiben
 		if (error) {
-			$("#errorCatch").html(error).slideDown("slow", 1);
+			$("#errorCatch").html(error).slideDown("slow");
 		} else {
 			
-			$("#errorCatch").slideUp("slow", 0);
+			$("#errorCatch").slideUp("slow");
 			$.ajax({
 				method: "POST",
 				url: "./modul/editProfile/editEntry.php",

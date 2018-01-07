@@ -26,8 +26,8 @@
 	</head>
 
 	<body id="page-top">
-		<div class="loadScreen dashloader" style="opacity: 0;">
-			<img class="img-responsive" id="loadingImg" src="img/loading.gif"/><span class="helper dashboardLoad"></span>
+		<div class="loadScreen dashloader">
+			<img class="img-responsive" alt="loading" id="loadingImg" src="img/loading.gif"/><span class="helper dashboardLoad"></span>
 		</div>
 		<?php
 			
@@ -38,7 +38,7 @@
 		?>
 		<div class="container-fluid p-0">
 			<section class="resume-section p-3 p-lg-5 d-flex d-column" id="section">
-				<div id="pageContent" tab="<?php if(isset($_GET["tab"]) && $_GET["tab"] == "editProfile"){ echo "editProfile"; } else { echo "";} ?>" class="col-lg-12" style="display: none;"></div>
+				<div id="pageContent" tab="<?php if(isset($_GET["tab"]) && $_GET["tab"] == "editProfile"){ echo "editProfile"; } else { echo "";} ?>" class="col-lg-12"></div>
 			</section>
 		</div>
 	
