@@ -145,18 +145,18 @@
                     <div planID="'. $planID .'" class="col-lg-4 headInfo">
                         <div class="row">
                             <div class="col-lg-3" style="text-align:center;">
-                                <img style="margin-left:auto;margin-right:auto;height: 60px; width:auto; margin-bottom: 0px;" class="img-fluid img-profile rounded-circle mx-auto" src="'. $userPicPath .'">
+                                <img style="margin-left:auto;margin-right:auto;height: 60px; width: auto; margin-bottom: 0px;" class="img-fluid img-profile rounded-circle mx-auto" src="'. $userPicPath .'">
                             </div>
                             <div class="col-lg-9" style="padding-top: 15px;">
                                 <span>Ersteller: '. $creatorName .'</span>
                             </div>
                         </div>
                     </div>
-                    <div planID="'. $planID .'" class="col-lg-6 headInfo" style="padding-top: 10px;">
+                    <div planID="'. $planID .'" class="col-lg-6 headInfo" style="padding-top: 15px;">
                         <b class="align-middle">'. $planName .'</b>
                     </div>
                     <div class="col-lg-2">
-                        <div class="row" style="padding-top: 10px;">
+                        <div class="row" style="padding-top: 15px;">
                             <div class="col-lg-6">
                                 '. $starEntry .'
                             </div>
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                 </div>
-                <div planID="'. $planID .'" class="detailed" style="display: none;">
+                <div planID="'. $planID .'" class="detailed" style="display: none; padding-top:10px;">
                     <div class="row">
                         <div class="col-lg-12">
                             <hr/>
