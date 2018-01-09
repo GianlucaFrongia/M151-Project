@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 09. Jan 2018 um 15:22
+-- Erstellungszeit: 09. Jan 2018 um 15:40
 -- Server-Version: 10.1.29-MariaDB
 -- PHP-Version: 7.2.0
 
@@ -259,7 +259,8 @@ CREATE TABLE `tb_news` (
 
 INSERT INTO `tb_news` (`id`, `title`, `content`, `date`) VALUES
 (1, 'Alpha Released', 'Die Alpha-Version ist nun mit dem einbau des \"News\"-Abschnittes auf dem Dashboard offiziell released.', '2018-01-05 15:40:18'),
-(2, 'Beta Released', 'In der Beta-Version der Applikation wurden einige Bugs behoben und weitere Funktionen hinzugefügt. Zur besseren Usability wurden einige Feedbacks ergänzt. Die Passwort-zurücksetzen Funktion im Profil ist nun voll funktionsfähig. Den kompletten Änderungsverlauf ist auf <a href=\"https://github.com/GianlucaFrongia/M151-Project/commits/master\">Github</a>  zu finden.', '2018-01-07 05:09:27');
+(2, 'Beta Released', 'In der Beta-Version der Applikation wurden einige Bugs behoben und weitere Funktionen hinzugefügt. Zur besseren Usability wurden einige Feedbacks ergänzt. Die Passwort-zurücksetzen Funktion im Profil ist nun voll funktionsfähig. Den kompletten Änderungsverlauf ist auf <a href=\"https://github.com/GianlucaFrongia/M151-Project/commits/master\">Github</a>  zu finden.', '2018-01-07 05:09:27'),
+(3, 'Release v1.1', 'Dieser Release enthält einige Erneuerungen zur letzten Version. Darunter zählen unter anderem:<br/><br/>\r\n\r\n- Favicons hinzugefügt, für die Desktop-, sowie Mobile-Version.<br/>\r\n- Datenbank komplett überholt und auf UTF-8 formatiert.<br/>\r\n- README.md bzw. Projektdokumentation vollendet und veröffentlicht.<br/>\r\n- Kleinere Design anpassungen.<br/>\r\n- Query zur Erstellung des SQL-Users angehängt (database/database.php).<br/>', '2018-01-09 14:39:03');
 
 -- --------------------------------------------------------
 
@@ -524,7 +525,7 @@ ALTER TABLE `tb_muscle`
 -- AUTO_INCREMENT für Tabelle `tb_news`
 --
 ALTER TABLE `tb_news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `tb_plan`
