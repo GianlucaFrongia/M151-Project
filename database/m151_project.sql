@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 07. Jan 2018 um 06:18
--- Server-Version: 10.1.25-MariaDB
--- PHP-Version: 7.1.7
+-- Erstellungszeit: 09. Jan 2018 um 15:22
+-- Server-Version: 10.1.29-MariaDB
+-- PHP-Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `m151_project`
 --
-CREATE DATABASE IF NOT EXISTS `m151_project` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `m151_project` DEFAULT CHARACTER SET utf8 COLLATE utf8_german2_ci;
 USE `m151_project`;
 
 -- --------------------------------------------------------
@@ -33,9 +33,9 @@ USE `m151_project`;
 CREATE TABLE `tb_changpasstoken` (
   `id` int(11) NOT NULL,
   `code` int(11) NOT NULL,
-  `token` varchar(50) DEFAULT NULL,
+  `token` varchar(50) COLLATE utf8_german2_ci DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 -- --------------------------------------------------------
 
@@ -45,27 +45,34 @@ CREATE TABLE `tb_changpasstoken` (
 
 CREATE TABLE `tb_exercise` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
+  `name` varchar(45) COLLATE utf8_german2_ci NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `description` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `description` text COLLATE utf8_german2_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_exercise`
 --
 
 INSERT INTO `tb_exercise` (`id`, `name`, `user_id`, `description`) VALUES
-(34, 'LiegestÃ¼tze', 12, 'Rauf und Runter mit den Adrmenasd'),
-(35, 'Kniebeugen', 12, 'Nach oben und unten mit OberkÃ¶rper'),
+(34, 'Liegestütze', 12, 'Rauf und Runter mit den Adrmenasd'),
+(35, 'Kniebeugen', 12, 'Nach oben und unten mit Oberkörper'),
 (36, 'Beinschere Links', 12, 'Linkes Beim hoch und runter'),
 (37, 'Beinschere Rechts', 12, 'Rechtes Bein hoch und runter'),
-(48, 'Kreuzheben', 13, 'Kreuzheben kann den Unterschied zwischen einer gut ausgeprÃ¤gten und einer herausragend gut ausgeprÃ¤gten RÃ¼ckenmuskulatur machen.'),
-(49, 'RÃ¼cken Flieger', 13, 'Dieses workout eignet sich hervorragend zur Aktivierung und zum Muskelaufbau ihrer Arme und Schultern. GekrÃ¤ftigt wird dabei vor allem der obere und mittlere RÃ¼cken.'),
-(50, 'BeingrÃ¤tsche', 13, 'Zum Abnehmen und Muskelaufbau das workout fÃ¼r den unteren KÃ¶rperberfffeich. Nicht nur der untere KÃ¶rper werden durch diese FitnessÃ¼bungen erwÃ¤rmt. Ihre gesamten Muskeln werden dabei leicht erwÃ¤rmt. Zudem aktivieren Sie ihr Herz-Kreislaufsystem.'),
-(51, 'BrÃ¼cke liegend', 13, 'Das Workout eignet sich gut zur KrÃ¤ftigung der Rumpfmuskulatur und sorgt fÃ¼r eine stabile KÃ¶rpermitte. Es verhilft ihnen zu einer aufrechten und stabilen Haltung. Zudem krÃ¤ftigt die BrÃ¼cke optimal ihren unteren RÃ¼cken, ihre Pomuskulatur und die Muskulatur der BeinrÃ¼ckseite.'),
-(52, 'Schulter heben', 14, 'Das Training zur StÃ¤rkung als auch zur ErwÃ¤rmung ihrer Muskulatur. GestÃ¤rkt wird mit dieser Ãœbung der obere Anteil des Trapezius-Muskels, also des Muskels der sich wie ein Trapez Ã¼ber den RÃ¼cken spannt. Der Nackenbereich wird gestÃ¤rkt gleichzeit straff. '),
-(53, 'KÃ¤fer', 14, 'Eine der guten FitnessÃ¼bungen fÃ¼r einen tollen Sixpack. Mit diesen FitnessÃ¼bungen bekommen Sie Ihr Gewicht in den Griff. Sie stÃ¤rken dabei den Bauch und beugen damit auch Haltungsproblemen vor, die oft durch die Schwierigkeit einer zu schwachen Rumpfmuskulatur entstehen.'),
-(54, 'Rumpfdrehung', 14, 'Mit diesen Ãœbungen beanspruchen Sie vor allem die seitliche Bauchmuskulatur zum Abnehmen und Muskelaufbau. ZusÃ¤tzlich ist ein kleiner Ball empfehlenswert, muss jedoch nich sein. Setzen Sie sich auf die Erde. Ihre Knie sind leicht vor ihnen angewinkelt. ');
+(48, 'Kreuzheben', 13, 'Kreuzheben kann den Unterschied zwischen einer gut ausgeprägten und einer herausragend gut ausgeprägten Rückenmuskulatur machen.'),
+(49, 'Rücken Flieger', 13, 'Dieses workout eignet sich hervorragend zur Aktivierung und zum Muskelaufbau ihrer Arme und Schultern. Gekräftigt wird dabei vor allem der obere und mittlere Rücken.'),
+(50, 'Beingrätsche', 13, 'Zum Abnehmen und Muskelaufbau das workout für den unteren Körperberfffeich. Nicht nur der untere Körper werden durch diese Fitnessübungen erwärmt. Ihre gesamten Muskeln werden dabei leicht erwärmt. Zudem aktivieren Sie ihr Herz-Kreislaufsystem.'),
+(51, 'Brücke liegend', 13, 'Das Workout eignet sich gut zur Kräftigung der Rumpfmuskulatur und sorgt für eine stabile Körpermitte. Es verhilft ihnen zu einer aufrechten und stabilen Haltung. Zudem kräftigt die Brücke optimal ihren unteren Rücken, ihre Pomuskulatur und die Muskulatur der Beinrückseite.'),
+(52, 'Schulter heben', 14, 'Das Training zur Stärkung als auch zur Erwärmung ihrer Muskulatur. Gestärkt wird mit dieser Übung der obere Anteil des Trapezius-Muskels, also des Muskels der sich wie ein Trapez über den Rücken spannt. Der Nackenbereich wird gestärkt gleichzeit straff. '),
+(53, 'Käfer', 14, 'Eine der guten Fitnessübungen für einen tollen Sixpack. Mit diesen Fitnessübungen bekommen Sie Ihr Gewicht in den Griff. Sie stärken dabei den Bauch und beugen damit auch Haltungsproblemen vor, die oft durch die Schwierigkeit einer zu schwachen Rumpfmuskulatur entstehen.'),
+(54, 'Rumpfdrehung', 14, 'Mit diesen Übungen beanspruchen Sie vor allem die seitliche Bauchmuskulatur zum Abnehmen und Muskelaufbau. Zusätzlich ist ein kleiner Ball empfehlenswert, muss jedoch nich sein. Setzen Sie sich auf die Erde. Ihre Knie sind leicht vor ihnen angewinkelt. '),
+(98, 'Beine dehnen', 28, 'Auf den Boden setzen. Das linke Bein ausstrecken, das rechte Bein anwinkeln und den Fuss gegen den linken Oberschenkel pressen. Den linken Fuss aufstellen, die Spitze zeigt so weit wie möglich zum Körper. Nun mit geradem Rücken nach vorne lehnen und die linke Fussspitze mit beiden Händen berühren, bestenfalls umfassen und nach vorne ziehen.'),
+(99, 'Wade dehnen', 28, 'Stellen Sie sich einen guten Meter entfernt vor einem Baum oder einer Wand auf. Strecken Sie nun die Arme nach vorn aus und lehnen Sie sich gegen den Baum. Ziehen Sie dabei das linke Bein leicht angewinkelt mit nach vorn, während das rechte Bein gestreckt bleibt.'),
+(100, 'Oberschenkel dehnen', 28, 'Gerade aufstellen. Der Blick ist nach vorn gerichtet. Nun das rechte Bein nach hinten anwinkeln bis die Ferse den Po berührt. Die Oberschenkel beider Beine bleiben parallel. Umfassen Sie den rechten Fuss mit beiden Händen und pressen Sie ihn gegen den Rücken.'),
+(101, 'Rücken dehnen', 28, 'Knien Sie sich auf den Boden. Nun nach vorne einen Katzenbuckel machen und den Oberkörper auf dem Schoss ablegen. Der Kopf ist in der Verlängerung der Wirbelsäule. Strecken Sie beide Arme so weit wie möglich nach vorn aus, sodass der Rücken gedehnt und entspannt wird.'),
+(102, 'Seitbeuge', 28, ' Zum Aufwärmen breitbeinig hinstellen, die Arme anwinkeln und in die Hüften stemmen. Nun vorsichtig soweit es geht zur linken Seite lehnen. Kurz halten, dann zur rechten Seite beugen. Beine und Hüfte bleiben dabei gerade, nur der Oberkörper soll sich bewegen.'),
+(103, 'Tauziehen', 28, 'Nehmen Sie nun ein Theraband aus Gummi zwischen die Hände. Greifen Sie das Band mit beiden Händen, wobei Sie zunächst nur einen kleinen Abstand von etwa 15 Zentimeter zwischen den Fäusten lassen. Ziehen Sie das Band nun vor der Brust so weit wie möglich auseinander, halten Sie es fünf Sekunden und lassen Sie dann wieder locker.'),
+(104, 'Elefantenrüssel', 28, 'Strecken Sie nun den rechten Arm auf Höhe der Schultern nach hinten zur linken Seite. Umfassen Sie mit der linken Hand den Ellbogen des rechten Arms und pressen Sie so den Arm gegen den Körper. Zehn Sekunden halten, dann die Seiten wechseln.');
 
 -- --------------------------------------------------------
 
@@ -77,7 +84,7 @@ CREATE TABLE `tb_exercisehasmuscle` (
   `id` int(11) NOT NULL,
   `exercise_id` int(11) NOT NULL,
   `muscle_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_exercisehasmuscle`
@@ -121,7 +128,28 @@ INSERT INTO `tb_exercisehasmuscle` (`id`, `exercise_id`, `muscle_id`) VALUES
 (128, 54, 13),
 (129, 54, 14),
 (178, 50, 8),
-(179, 50, 10);
+(179, 50, 10),
+(198, 98, 5),
+(199, 98, 9),
+(200, 98, 13),
+(201, 99, 6),
+(202, 99, 9),
+(203, 99, 11),
+(204, 100, 6),
+(205, 100, 9),
+(206, 100, 11),
+(207, 101, 7),
+(208, 101, 9),
+(209, 101, 12),
+(210, 102, 5),
+(211, 102, 9),
+(212, 102, 11),
+(213, 103, 1),
+(214, 103, 10),
+(215, 103, 13),
+(216, 104, 5),
+(217, 104, 6),
+(218, 104, 7);
 
 -- --------------------------------------------------------
 
@@ -157,9 +185,9 @@ INSERT INTO `tb_modul` (`ID`, `name`, `description`, `file_path`, `title`) VALUE
 
 CREATE TABLE `tb_motivations` (
   `id` int(11) NOT NULL,
-  `title` varchar(30) NOT NULL,
-  `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `title` varchar(30) COLLATE utf8_german2_ci NOT NULL,
+  `description` text COLLATE utf8_german2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_motivations`
@@ -188,8 +216,8 @@ INSERT INTO `tb_motivations` (`id`, `title`, `description`) VALUES
 
 CREATE TABLE `tb_muscle` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `name` varchar(45) COLLATE utf8_german2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_muscle`
@@ -220,10 +248,10 @@ INSERT INTO `tb_muscle` (`id`, `name`) VALUES
 
 CREATE TABLE `tb_news` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
+  `title` varchar(255) COLLATE utf8_german2_ci NOT NULL,
+  `content` text COLLATE utf8_german2_ci NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_news`
@@ -241,10 +269,10 @@ INSERT INTO `tb_news` (`id`, `title`, `content`, `date`) VALUES
 
 CREATE TABLE `tb_plan` (
   `id` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `description` text,
+  `name` varchar(45) COLLATE utf8_german2_ci NOT NULL,
+  `description` text COLLATE utf8_german2_ci,
   `creator` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_plan`
@@ -252,12 +280,14 @@ CREATE TABLE `tb_plan` (
 
 INSERT INTO `tb_plan` (`id`, `name`, `description`, `creator`) VALUES
 (8, 'Morgenroutine', 'Um jeden Morgen gleich Fit zu werden', 12),
-(9, 'Sprint-Workout', 'TÃ¤gliche Dosis an Testosteron und Anabolika.', 12),
-(10, 'Abendgymnastik', 'Nach diesem Plan sind alle Gelenke wieder in Takt und man kann gemÃ¼tlich schlafen.', 12),
-(11, 'Zu Hause Abnehmen', 'Mit diesen Ãœbungen kann man ganz einfach zu Hause abnehmen.', 13),
-(12, 'KrÃ¤ftiger RÃ¼cken', 'Mit dieser Ãœbung schÃ¼tzen Sie ihren RÃ¼cken vor Schmerzen', 13),
-(13, 'Extreme-Kondition', 'Durch den schnellen Wechsel der Aufgaben soll die Kondition gestÃ¤rkt werden.', 14),
-(14, 'Schlaf-Selbst-Hypnose', 'Nach dieser Ãœbung sind die Muskeln entspannt, was beim Einschlafen hilft.', 14);
+(9, 'Sprint-Workout', 'Tägliche Dosis an Testosteron und Anabolika.', 12),
+(10, 'Abendgymnastik', 'Nach diesem Plan sind alle Gelenke wieder in Takt und man kann gemütlich schlafen.', 12),
+(11, 'Zu Hause Abnehmen', 'Mit diesen Übungen kann man ganz einfach zu Hause abnehmen.', 13),
+(12, 'Kräftiger Rücken', 'Mit dieser Übung schützen Sie ihren Rücken vor Schmerzen', 13),
+(13, 'Extreme-Kondition', 'Durch den schnellen Wechsel der Aufgaben soll die Kondition gestärkt werden.', 14),
+(14, 'Schlaf-Selbst-Hypnose', 'Nach dieser Übung sind die Muskeln entspannt, was beim Einschlafen hilft.', 14),
+(32, 'Dehnübungen', 'Dehnen vor Sport, dehnen nach Sport, wippend dehnen oder statisch dehnen, darf es schmerzen oder nur leicht ziehen â€“ um das Thema Dehnübungen ranken sich viele Sport-Mythen. Dabei ist es im Grunde ganz einfach: Tun Sie das beim Dehnen, was Ihnen gut tut.\n', 28),
+(33, 'Seniorengymnastik', 'Nicht nur in jungen Jahren, sondern auch und gerade im Alter ist es enorm wichtig, sich sportlich zu betätigen. Senioren, die sich regelmässig bewegen, sind in der Regel körperlich und auch geistig weitaus fitter als Couchpotatoes im gleichen Alter. Natürlich sind Menschen über 70 nur noch selten zu sportlichen Höchstleistungen fähig.', 28);
 
 -- --------------------------------------------------------
 
@@ -271,7 +301,7 @@ CREATE TABLE `tb_planhasexercise` (
   `exercise_id` int(11) NOT NULL,
   `repetitions` int(11) NOT NULL,
   `sets` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_planhasexercise`
@@ -306,7 +336,14 @@ INSERT INTO `tb_planhasexercise` (`id`, `plan_id`, `exercise_id`, `repetitions`,
 (49, 13, 52, 60, 1),
 (50, 13, 53, 60, 1),
 (51, 13, 54, 60, 1),
-(52, 14, 53, 60, 3);
+(52, 14, 53, 60, 3),
+(73, 32, 98, 2, 15),
+(74, 32, 99, 2, 15),
+(75, 32, 100, 2, 15),
+(76, 32, 101, 2, 15),
+(77, 33, 102, 5, 5),
+(78, 33, 103, 10, 2),
+(79, 33, 104, 15, 30);
 
 -- --------------------------------------------------------
 
@@ -316,23 +353,24 @@ INSERT INTO `tb_planhasexercise` (`id`, `plan_id`, `exercise_id`, `repetitions`,
 
 CREATE TABLE `tb_user` (
   `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `firstname` varchar(255) DEFAULT NULL,
-  `lastname` varchar(255) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8_german2_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_german2_ci NOT NULL,
+  `firstname` varchar(255) COLLATE utf8_german2_ci DEFAULT NULL,
+  `lastname` varchar(255) COLLATE utf8_german2_ci DEFAULT NULL,
+  `email` varchar(50) COLLATE utf8_german2_ci DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `pbPath` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `pbPath` varchar(255) COLLATE utf8_german2_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_user`
 --
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `firstname`, `lastname`, `email`, `reg_date`, `pbPath`) VALUES
-(12, 'awecklenbuch', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Adam', 'Wecklenbuch', 'admin@test.com', '2018-01-07 05:14:53', 'userpb/pb2.jpg'),
+(12, 'awecklenbuch', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Adam', 'Wecklenbuch', 'test@user.com', '2018-01-09 14:21:46', 'userpb/pb2.jpg'),
 (13, 'mansalthe', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Manuel', 'SalbeithÃ¨f', 'test@user.comr', '2018-01-07 05:15:17', 'userpb/pb1.jpg'),
-(14, 'schadmark', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Maria', 'SchÃ¤deli', 'test@user.com', '2018-01-07 05:15:36', 'userpb/pb3.jpg');
+(14, 'schadmark', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Maria', 'Schädeli', 'test@user.com', '2018-01-07 05:15:36', 'userpb/pb3.jpg'),
+(28, 'copernicus', '$2y$11$AQvu5uLS9U5diYXNI2RxvePOXvPwL5mDxd0o8UidmbDNoFq.cycOW', 'Elias', 'Matteo', 'test@user.com', '2018-01-09 14:21:49', 'userpb/eliareutlinger.jpg');
 
 -- --------------------------------------------------------
 
@@ -344,7 +382,7 @@ CREATE TABLE `tb_userhasfavorite` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `plan_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_german2_ci;
 
 --
 -- Daten für Tabelle `tb_userhasfavorite`
@@ -359,7 +397,9 @@ INSERT INTO `tb_userhasfavorite` (`id`, `user_id`, `plan_id`) VALUES
 (46, 12, 14),
 (48, 13, 14),
 (63, 13, 10),
-(64, 13, 9);
+(64, 13, 9),
+(74, 28, 10),
+(83, 28, 12);
 
 --
 -- Indizes der exportierten Tabellen
@@ -449,56 +489,67 @@ ALTER TABLE `tb_userhasfavorite`
 --
 ALTER TABLE `tb_changpasstoken`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercise`
 --
 ALTER TABLE `tb_exercise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercisehasmuscle`
 --
 ALTER TABLE `tb_exercisehasmuscle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_modul`
 --
 ALTER TABLE `tb_modul`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_motivations`
 --
 ALTER TABLE `tb_motivations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_muscle`
 --
 ALTER TABLE `tb_muscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_news`
 --
 ALTER TABLE `tb_news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_plan`
 --
 ALTER TABLE `tb_plan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_planhasexercise`
 --
 ALTER TABLE `tb_planhasexercise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_userhasfavorite`
 --
 ALTER TABLE `tb_userhasfavorite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
 --
 -- Constraints der exportierten Tabellen
 --
