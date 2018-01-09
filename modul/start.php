@@ -17,7 +17,7 @@
 		while($row = $result3->fetch_assoc()) {
 
             $newsEntry = '<b>'. $row['title'] .'</b><p>'. $row['content'] .'</p><br/>';
-            $news = $news . utf8_encode($newsEntry);
+            $news = $news . $newsEntry;
 
         }
     }
@@ -93,7 +93,7 @@
 	$result3 = $mysqli->query($sql3);
 	if ($result3->num_rows > 0) {
 		while($row = $result3->fetch_assoc()) {
-			$quote = "<b>" . utf8_encode($row["title"]) . "</b><br/>" . utf8_encode($row["description"]);
+			$quote = "<b>" . $row["title"] . "</b><br/>" . $row["description"];
 		}
 	}
 

@@ -21,11 +21,11 @@
 			<div class="form-check">
 				<label class="form-check-label">
 					<input class="form-check-input muscles" type="checkbox" value="'. $row["id"] .'">
-					'. utf8_encode($row["name"]) .'
+					'. $row["name"] .'
 				</label>
 			</div>';
             $optionToList = '
-                <option value="'. $row["id"] .'">'. utf8_encode($row["name"]) .'</option>
+                <option value="'. $row["id"] .'">'. $row["name"] .'</option>
             ';
 			$muscleList = $muscleList . $entryToList;
             $optionList = $optionList . $optionToList;
@@ -60,7 +60,7 @@
                 while($row3 = $result3->fetch_assoc()) {
                     $newMuscleListEntry = '
                     <div exerciseID="'. $exerciseID .'" muscleID="'. $row3['id'] .'" class="muscleGroup">
-                        <i style="cursor: pointer;" exerciseID="'. $exerciseID .'" muscleID="'. $row3['id'] .'" class="fa fa-times-circle deleteButton" aria-hidden="true"></i> '. utf8_encode($row3['name']) .' <br/>
+                        <i style="cursor: pointer;" exerciseID="'. $exerciseID .'" muscleID="'. $row3['id'] .'" class="fa fa-times-circle deleteButton" aria-hidden="true"></i> '. $row3['name'] .' <br/>
                     </div>';
                     $muscleListEntries = $muscleListEntries . $newMuscleListEntry;
                 }

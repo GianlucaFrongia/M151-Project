@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     Aktive Muskeln:<br/>
-                                                    '. utf8_encode($muscleList) .'
+                                                    '. $muscleList .'
                                                 </div>
                                             </div>
                                             <br/>
