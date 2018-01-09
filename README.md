@@ -22,6 +22,7 @@
 1. Behandlung von zusätzlichen Daten 	
 1. Usability 
 1. Errorhandling 
+1. Validierung
 
 
 
@@ -62,3 +63,7 @@ Zusätzliche Daten, welche der User in der Anwendung bearbeitet, löscht oder er
 Der Benutzer wird hauptsächlich anhand von unterschiedlichen Animationen durch die Anwendung geführt. Er hat eine Übersicht über alle Module und kann diese durch nicht mehr als einen Mausklick aufrufen. Um innerhalb eines Moduls eine Funktion auszuführen, werden (abgesehen von möglichen Textfeld-Eingaben) niemals mehr als mindestens 5 Mausklicks benötigt. Dies soll die Usability sowie die Performance der Anwendung garantieren, wobei durch das dynamische hinzufügen von neuen Objekten unnötige Seitenaufrufe erspart bleiben.
 ## 10. Errorhandling 
 Das Errorhandling wurde so simpel wie möglich, jedoch auch mit ausreichend Informationen für den Benutzer gestaltet. Jedes Modul enthält von Grund auf 1-2 UI-Objekte, um Fehler anzuzeigen. Dabei werden diese Objekte erst eingeblendet, wenn durch die Clientseitige oder auch Serverseitige Validierung ein Fehler aufgetreten ist. Je nach Funktionalität bleiben die Fehlermeldungen ersichtlich oder blenden sich nach einigen Sekunden wieder aus.
+## 11. Validierung
+Der gesamte Projektcode(HTML/CSS) wurde an Hand W3School erfolgreich validiert.
+
+
