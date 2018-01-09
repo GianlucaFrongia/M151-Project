@@ -64,6 +64,6 @@ Der Benutzer wird hauptsächlich anhand von unterschiedlichen Animationen durch 
 ## 10. Errorhandling 
 Das Errorhandling wurde so simpel wie möglich, jedoch auch mit ausreichend Informationen für den Benutzer gestaltet. Jedes Modul enthält von Grund auf 1-2 UI-Objekte, um Fehler anzuzeigen. Dabei werden diese Objekte erst eingeblendet, wenn durch die Clientseitige oder auch Serverseitige Validierung ein Fehler aufgetreten ist. Je nach Funktionalität bleiben die Fehlermeldungen ersichtlich oder blenden sich nach einigen Sekunden wieder aus.
 ## 11. Validierung
-Der gesamte Projektcode(HTML/CSS) wurde an Hand W3School erfolgreich validiert.
+Um eine gute Benutzererfahrung sowie reibungslosen und Normen Code zu übermitteln, wurden alle HTML und CSS Teile durch den W3C Markup Validation Service erfolgreich validiert.
 
 
