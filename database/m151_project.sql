@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 09. Jan 2018 um 15:40
--- Server-Version: 10.1.29-MariaDB
--- PHP-Version: 7.2.0
+-- Erstellungszeit: 09. Jan 2018 um 21:06
+-- Server-Version: 10.1.25-MariaDB
+-- PHP-Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -259,8 +259,9 @@ CREATE TABLE `tb_news` (
 
 INSERT INTO `tb_news` (`id`, `title`, `content`, `date`) VALUES
 (1, 'Alpha Released', 'Die Alpha-Version ist nun mit dem einbau des \"News\"-Abschnittes auf dem Dashboard offiziell released.', '2018-01-05 15:40:18'),
-(2, 'Beta Released', 'In der Beta-Version der Applikation wurden einige Bugs behoben und weitere Funktionen hinzugefügt. Zur besseren Usability wurden einige Feedbacks ergänzt. Die Passwort-zurücksetzen Funktion im Profil ist nun voll funktionsfähig. Den kompletten Änderungsverlauf ist auf <a href=\"https://github.com/GianlucaFrongia/M151-Project/commits/master\">Github</a>  zu finden.', '2018-01-07 05:09:27'),
-(3, 'Release v1.1', 'Dieser Release enthält einige Erneuerungen zur letzten Version. Darunter zählen unter anderem:<br/><br/>\r\n\r\n- Favicons hinzugefügt, für die Desktop-, sowie Mobile-Version.<br/>\r\n- Datenbank komplett überholt und auf UTF-8 formatiert.<br/>\r\n- README.md bzw. Projektdokumentation vollendet und veröffentlicht.<br/>\r\n- Kleinere Design anpassungen.<br/>\r\n- Query zur Erstellung des SQL-Users angehängt (database/database.php).<br/>', '2018-01-09 14:39:03');
+(2, 'Beta Released', 'In der Beta-Version der Applikation wurden einige Bugs behoben und weitere Funktionen hinzugefügt. Zur besseren Usability wurden einige Feedbacks ergänzt. Die Passwort-zurücksetzen Funktion im Profil ist nun voll funktionsfähig. Den kompletten Änderungsverlauf ist auf <a href=\"https://github.com/eliareutlinger/M151-Project/commits/master\">Github</a>  zu finden.', '2018-01-07 05:09:27'),
+(3, 'Release v1.1', 'Dieser Release enthält einige Erneuerungen zur letzten Version. Darunter zählen unter anderem:<br/><br/>\r\n\r\n- Favicons hinzugefügt, für die Desktop-, sowie Mobile-Version.<br/>\r\n- Datenbank komplett überholt und auf UTF-8 formatiert.<br/>\r\n- README.md bzw. Projektdokumentation vollendet und veröffentlicht.<br/>\r\n- Kleinere Design anpassungen.<br/>\r\n- Query zur Erstellung des SQL-Users angehängt (database/database.php).<br/>', '2018-01-09 14:39:03'),
+(4, 'Release v1.1.1', 'In diesem Release wurden kleinere Fehler behoben, welche unter Umständen Einfluss auf die Benutzerinteraktion haben hätten können.', '2018-01-09 20:06:00');
 
 -- --------------------------------------------------------
 
@@ -490,67 +491,56 @@ ALTER TABLE `tb_userhasfavorite`
 --
 ALTER TABLE `tb_changpasstoken`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercise`
 --
 ALTER TABLE `tb_exercise`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercisehasmuscle`
 --
 ALTER TABLE `tb_exercisehasmuscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_modul`
 --
 ALTER TABLE `tb_modul`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_motivations`
 --
 ALTER TABLE `tb_motivations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_muscle`
 --
 ALTER TABLE `tb_muscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_news`
 --
 ALTER TABLE `tb_news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT für Tabelle `tb_plan`
 --
 ALTER TABLE `tb_plan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_planhasexercise`
 --
 ALTER TABLE `tb_planhasexercise`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
 --
 -- AUTO_INCREMENT für Tabelle `tb_userhasfavorite`
 --
 ALTER TABLE `tb_userhasfavorite`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
-
 --
 -- Constraints der exportierten Tabellen
 --
