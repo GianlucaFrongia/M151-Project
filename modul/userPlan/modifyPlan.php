@@ -18,7 +18,7 @@
 		//Variabeln auslesen
         $planName = test_input($_POST["planName"]);
         $planDescription = test_input($_POST["planDescription"]);
-        $exercises = test_input($_POST["exercises"]);
+        $exercises = $_POST["exercises"];
         
 		//Plan in der Datenbank eintragen
         $stmt = $mysqli->prepare("INSERT INTO tb_plan(name, description, creator) VALUES (?, ?, ?);");
@@ -32,9 +32,14 @@
 		//Jeden Wert im $exercises Array soll in der Datenbank gespeichert werden (tb_planhasexercise)
         foreach($exercises AS $value){
             
+            $explid = test_input($planTableId);
+            $va1 = test_input($value[0]);
+            $va2 = test_input($value[1]);
+            $va3 = test_input($value[2]);
+            
 			//Eintrag in der Datenbank speichern
             $stmt = $mysqli->prepare("INSERT INTO tb_planhasexercise(plan_id, exercise_id, repetitions, sets) VALUES (?, ?, ?, ?);");
-            $stmt->bind_param("iiii", $planTableId, $value[0], $value[1], $value[2]);
+            $stmt->bind_param("iiii", $explid, $va1, $va2, $va3);
             $stmt->execute();
             
         }
@@ -47,7 +52,7 @@
 		//Variabeln auslesen
         $planID = test_input($_POST["planID"]);
         $newDescription = test_input($_POST["newDescription"]);
-        $newExercises = test_input($_POST["newExercises"]);
+        $newExercises = $_POST["newExercises"];
         
 		//Planbeschreibung in der Datenbank updaten
         $stmt = $mysqli->prepare("UPDATE tb_plan SET description = ? WHERE id = ?;");
@@ -57,9 +62,13 @@
 		//Jeden Wert im $newExercises Array in der Datenbank speichern (tb_planhasexercise)
         foreach($newExercises AS $value){
             
+            $va1 = test_input($value[0]);
+            $va2 = test_input($value[1]);
+            $va3 = test_input($value[2]);
+            
 			//Werte in der Datenbank updaten
             $stmt = $mysqli->prepare("UPDATE tb_planhasexercise SET repetitions = ?, sets = ? WHERE id = ?;");
-            $stmt->bind_param("iii", $value[1], $value[2], $value[0]);
+            $stmt->bind_param("iii", $va1, $va2, $va3);
             $stmt->execute();
             
         }

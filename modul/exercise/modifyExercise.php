@@ -18,7 +18,7 @@
 		//Variabeln auslesen
 		$name = test_input($_POST["name"]);
         $description = test_input($_POST["description"]);
-        $muscles = test_input($_POST["muscles"]);
+        $muscles = $_POST["muscles"];
         
         //Übung in die Datenbank schreiben
         $stmt = $mysqli->prepare("INSERT INTO tb_exercise(name, user_id, description) VALUES (?, ?, ?);");
@@ -31,8 +31,11 @@
         
         //Jeden Eintrag im $muscles Array in der N:M tabelle tb_exercisehasmuscle speichern
         foreach($muscles as $value){
+            
+            $entityMuscle = test_input($value);
+            
             $stmt = $mysqli->prepare("INSERT INTO tb_exercisehasmuscle(exercise_id, muscle_id) VALUES (?, ?);");
-            $stmt->bind_param("ii",  $exerciseTableId, $value);
+            $stmt->bind_param("ii",  $exerciseTableId, $entityMuscle);
             $stmt->execute();
         }
 		

@@ -23,22 +23,22 @@
     //Vor- und Nachname prüfen (auf länge), und möglicherweise Fehlermeldung ausgeben
     if (!empty($firstname)) {
         if (strlen($firstname) > 30) {
-            $error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
+            $error = $error . "Der Vorname is zu lang (Max. 30 Zeichen). <br>";
         } elseif (strlen($firstname) < 2) {
-            $error = $error .  "Der Benutzername is zu kurz (Min 6 Zeichen). <br>";
+            $error = $error .  "Der Vorname is zu kurz (Min 6 Zeichen). <br>";
         }
     } else {
-        $error = $error .  "Es wurde kein Benutzername angegeben. <br>";
+        $error = $error .  "Es wurde kein Vorname angegeben. <br>";
     }
 
     if (!empty($lastname)) {
         if (strlen($lastname) > 30) {
-            $error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
+            $error = $error . "Der Nachname is zu lang (Max. 30 Zeichen). <br>";
         } elseif (strlen($lastname) < 2) {
-            $error = $error .  "Der Benutzername is zu kurz (Min 6 Zeichen). <br>";
+            $error = $error .  "Der Nachname is zu kurz (Min 6 Zeichen). <br>";
         }
     } else {
-        $error = $error .  "Es wurde kein Benutzername angegeben. <br>";
+        $error = $error .  "Es wurde kein Nachname angegeben. <br>";
     }
     //Vor- und Nachname prüfen ende
 
