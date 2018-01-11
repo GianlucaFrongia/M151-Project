@@ -16,16 +16,15 @@
 	<head>
 
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Fitness Under Control ist deine Lösung den Papierkram endlich loszuwerden.
-Wir bieten eine Lösung welche dir die Möglichkeit gibt deine Trainingspläne online zu verwalten. Du kannst eigene Übungen erfassen, eigene Pläne erstellen und Pläne anderer User verwenden.">
+                    Wir bieten eine Lösung welche dir die Möglichkeit gibt deine Trainingspläne online zu verwalten. Du kannst eigene Übungen erfassen, eigene Pläne erstellen und Pläne anderer User verwenden.">
 		<meta name="author" content="Elia Reutlinger, Valentino Rusconi, Gianluca Frongia">
 
 		<title>F.U.C - Login/Register</title>
 		<link rel="apple-touch-icon" sizes="180x180" href="img/ico/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="img/ico/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="img/ico/favicon-16x16.png">
+		<link rel="sicon" type="image/png" sizes="16x16" href="img/ico/favicon-16x16.png">
 		<link rel="manifest" href="img/ico/manifest.json">
 		<link rel="mask-icon" href="img/ico/safari-pinned-tab.svg" color="#5bbad5">
 		<link rel="shortcut icon" href="img/ico/favicon.ico">

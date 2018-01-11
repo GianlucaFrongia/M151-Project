@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 09. Jan 2018 um 21:06
--- Server-Version: 10.1.25-MariaDB
--- PHP-Version: 7.1.7
+-- Erstellungszeit: 11. Jan 2018 um 09:56
+-- Server-Version: 10.1.28-MariaDB
+-- PHP-Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,10 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `m151_project`
+-- Datenbank: `fitnessundercontrol`
 --
-CREATE DATABASE IF NOT EXISTS `m151_project` DEFAULT CHARACTER SET utf8 COLLATE utf8_german2_ci;
-USE `m151_project`;
+CREATE DATABASE IF NOT EXISTS `fitnessundercontrol` DEFAULT CHARACTER SET utf8 COLLATE utf8_german2_ci;
+USE `fitnessundercontrol`;
 
 -- --------------------------------------------------------
 
@@ -491,56 +491,67 @@ ALTER TABLE `tb_userhasfavorite`
 --
 ALTER TABLE `tb_changpasstoken`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercise`
 --
 ALTER TABLE `tb_exercise`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_exercisehasmuscle`
 --
 ALTER TABLE `tb_exercisehasmuscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=219;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_modul`
 --
 ALTER TABLE `tb_modul`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_motivations`
 --
 ALTER TABLE `tb_motivations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_muscle`
 --
 ALTER TABLE `tb_muscle`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_news`
 --
 ALTER TABLE `tb_news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_plan`
 --
 ALTER TABLE `tb_plan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_planhasexercise`
 --
 ALTER TABLE `tb_planhasexercise`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
 --
 -- AUTO_INCREMENT für Tabelle `tb_userhasfavorite`
 --
 ALTER TABLE `tb_userhasfavorite`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
 --
 -- Constraints der exportierten Tabellen
 --

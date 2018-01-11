@@ -4,7 +4,6 @@
 	<head>
 
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="Fitness Under Control ist deine Lösung den Papierkram endlich loszuwerden.
 Wir bieten eine Lösung welche dir die Möglichkeit gibt deine Trainingspläne online zu verwalten. Du kannst eigene Übungen erfassen, eigene Pläne erstellen und Pläne anderer User verwenden.">
