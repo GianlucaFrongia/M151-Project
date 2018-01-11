@@ -4,13 +4,21 @@
 	include("./../session.php");
 	include("./../../database/database.php");
 
+    //Werte trimmen und auf richtigkeit prüfen
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    
 	//Eine neue Übung hinzufügen
 	if($_POST["toDo"] == "addExercise"){
 		
 		//Variabeln auslesen
-		$name = $_POST["name"];
-        $description = $_POST["description"];
-        $muscles = $_POST["muscles"];
+		$name = test_input($_POST["name"]);
+        $description = test_input($_POST["description"]);
+        $muscles = test_input($_POST["muscles"]);
         
         //Übung in die Datenbank schreiben
         $stmt = $mysqli->prepare("INSERT INTO tb_exercise(name, user_id, description) VALUES (?, ?, ?);");
@@ -34,7 +42,7 @@
     if($_POST["toDo"] == "deleteExercise"){
         
 		//Variabeln auslesen
-        $exerciseID = $_POST["exercise"];
+        $exerciseID = test_input($_POST["exercise"]);
         
 		//Übung aus jedem Plan löschen
         $stmt = $mysqli->prepare("DELETE FROM `tb_planhasexercise` WHERE `exercise_id` = ?;");
@@ -57,8 +65,8 @@
     if($_POST["toDo"] == "addMuscle"){
         
 		//Variabeln auslesen
-        $exerciseID = $_POST["exercise"];
-        $muscleID = $_POST["muscleID"];
+        $exerciseID = test_input($_POST["exercise"]);
+        $muscleID = test_input($_POST["muscleID"]);
         
 		//Neuen Muskel in der Datenbank abspeichern
         $stmt = $mysqli->prepare("INSERT INTO tb_exercisehasmuscle(exercise_id, muscle_id) VALUES (?, ?);");
@@ -71,8 +79,8 @@
     if($_POST["toDo"] == "deleteMuscle"){
         
 		//Variabeln auslesen
-        $exerciseID = $_POST["exercise"];
-        $muscleID = $_POST["muscleID"];
+        $exerciseID = test_input($_POST["exercise"]);
+        $muscleID = test_input($_POST["muscleID"]);
         
 		//Muskel aus der Datenbank entfernen
         $stmt = $mysqli->prepare("DELETE FROM `tb_exercisehasmuscle` WHERE `exercise_id` = ? AND `muscle_id` = ?;");
@@ -85,8 +93,8 @@
     if($_POST["toDo"] == "changeDescription"){
         
 		//Variabeln auslesen
-        $exercise = $_POST["exerciseID"];
-        $description = $_POST["newDescription"];
+        $exercise = test_input($_POST["exerciseID"]);
+        $description = test_input($_POST["newDescription"]);
         
 		//Beschreibung in der Datenbank updaten
         $stmt = $mysqli->prepare("UPDATE `tb_exercise` SET `description` = ? WHERE id = ?;");

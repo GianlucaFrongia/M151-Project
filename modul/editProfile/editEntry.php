@@ -8,6 +8,14 @@
 	$error = "";
 	$toDo = "";
 	
+    //Werte trimmen und auf Richtigkeit prüfen
+	function test_input($data) {
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+    
 	//$_GET Attribute auslesen
 	if (isset($_POST["toDo"])){
 		$toDo = $_POST["toDo"];
@@ -19,20 +27,10 @@
 	if($toDo == "changePass"){
 		
 		//Variabeln auslesen
-		$password = $_POST['password'];
-		$password2 = $_POST['password2'];
-		
-		//Werte trimmen und auf Richtigkeit prüfen
-		function test_input($data) {
-			$data = trim($data);
-			$data = stripslashes($data);
-			$data = htmlspecialchars($data);
-			return $data;
-		}
+		$password = test_input($_POST['password']);
+		$password2 = test_input($_POST['password2']);
 		
 		//Passwörter prüfen (auf Länge, Inhalt und Gleichheit), und möglicherweise Fehlermeldung ausgeben
-		test_input($password);
-		test_input($password2);
 		if (!empty($password)) {
 			if (strlen($_POST["password"]) < '8') {
 				$error = $error .  "Das Passwort muss mind. 8 Zeichen lang sein. <br>";
@@ -94,20 +92,11 @@
 	//Änderungen in die Datenbank schreiben
 	if($toDo == "saveChanges"){
 	
-		$firstname = $_POST["firstname"];
-		$lastname = $_POST["lastname"];
-		$email = $_POST["email"];
-		
-		//Jeden ($data)Input trimmmen und Überprüfen
-		function test_input($data) {
-			$data = trim($data);
-			$data = stripslashes($data);
-			$data = htmlspecialchars($data);
-			return $data;
-		}
+		$firstname = test_input($_POST["firstname"]);
+		$lastname = test_input($_POST["lastname"]);
+		$email = test_input($_POST["email"]);
 		
 		//Vor- und Nachname prüfen
-		test_input($firstname);
 		if (!empty($firstname)) {
 			if (strlen($firstname) > 30) {
 				$error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
@@ -118,7 +107,6 @@
 			$error = $error .  "Es wurde kein Vorname angegeben. <br>";
 		}
 		
-		test_input($lastname);
 		if (!empty($lastname)) {
 			if (strlen($lastname) > 30) {
 				$error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
@@ -131,7 +119,6 @@
 		//Vor- und Nachname prüfen ende
 		
 		//E-Mail prüfen
-		test_input($email);
 		if (!empty($email)) {
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 				$error = $error . "Die angegebene E-Mail Adresse ist ungültig.<br>";

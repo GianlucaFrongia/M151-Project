@@ -4,13 +4,21 @@
     include("./../session.php");
 	include("./../../database/database.php");
 	
+    //Werte trimmen und auf richtigkeit prüfen
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    
 	//Plan hinzufügen
     if($_POST["toDo"] == "addPlan"){
         
 		//Variabeln auslesen
-        $planName = $_POST["planName"];
-        $planDescription = $_POST["planDescription"];
-        $exercises = $_POST["exercises"];
+        $planName = test_input($_POST["planName"]);
+        $planDescription = test_input($_POST["planDescription"]);
+        $exercises = test_input($_POST["exercises"]);
         
 		//Plan in der Datenbank eintragen
         $stmt = $mysqli->prepare("INSERT INTO tb_plan(name, description, creator) VALUES (?, ?, ?);");
@@ -37,9 +45,9 @@
     if($_POST["toDo"] == "changePlan"){
         
 		//Variabeln auslesen
-        $planID = $_POST["planID"];
-        $newDescription = $_POST["newDescription"];
-        $newExercises = $_POST["newExercises"];
+        $planID = test_input($_POST["planID"]);
+        $newDescription = test_input($_POST["newDescription"]);
+        $newExercises = test_input($_POST["newExercises"]);
         
 		//Planbeschreibung in der Datenbank updaten
         $stmt = $mysqli->prepare("UPDATE tb_plan SET description = ? WHERE id = ?;");
@@ -62,7 +70,7 @@
     if($_POST["toDo"] == "deletePlan"){
         
 		//Variabeln auslesen
-        $planID = $_POST["planID"];
+        $planID = test_input($_POST["planID"]);
         
 		//Plan aus der Tabelle mit den Favoriten löschen
         $stmt = $mysqli->prepare("DELETE FROM `tb_userhasfavorite` WHERE `plan_id` = ?;");

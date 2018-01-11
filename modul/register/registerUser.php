@@ -5,12 +5,12 @@
 
 	//Variabeln initialisieren bzw. auslesen
     $error = "";
-    $username = $_POST["username"];
-	$password = $_POST["password"];
-    $password2 = $_POST["password2"];
-    $email = $_POST["email"];
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
+    $username = test_input($_POST["username"]);
+	$password = test_input($_POST["password"]);
+    $password2 = test_input($_POST["password2"]);
+    $email = test_input($_POST["email"]);
+    $firstname = test_input($_POST["firstname"]);
+    $lastname = test_input($_POST["lastname"]);
 
 	//Werte trimmen und auf richtigkeit prüfen
     function test_input($data) {
@@ -21,7 +21,6 @@
     }
 
     //Vor- und Nachname prüfen (auf länge), und möglicherweise Fehlermeldung ausgeben
-    test_input($firstname);
     if (!empty($firstname)) {
         if (strlen($firstname) > 30) {
             $error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
@@ -32,7 +31,6 @@
         $error = $error .  "Es wurde kein Benutzername angegeben. <br>";
     }
 
-    test_input($lastname);
     if (!empty($lastname)) {
         if (strlen($lastname) > 30) {
             $error = $error . "Der Benutzername is zu lang (Max. 30 Zeichen). <br>";
@@ -45,7 +43,6 @@
     //Vor- und Nachname prüfen ende
 
     //Benutzername prüfen (auf länge oder ob bereits vorhanden), und möglicherweise Fehlermeldung ausgeben
-    test_input($username);
     if (!empty($username)) {
 		
 		$sql ="SELECT username FROM tb_user where username = '$username'";
@@ -64,8 +61,6 @@
     //Benutzername prüfen ende
 
     //Passwörter prüfen (auf Länge, Inhalt und Gleichheit), und möglicherweise Fehlermeldung ausgeben
-    test_input($password);
-    test_input($password2);
     if (!empty($password)) {
         if (strlen($_POST["password"]) < '8') {
             $error = $error .  "Das Passwort muss mind. 8 Zeichen lang sein. <br>";
@@ -90,7 +85,6 @@
     //Passwörter prüfen ende
 
     //E-Mail prüfen (auf Länge und Inhalt), und möglicherweise Fehlermeldung ausgeben
-    test_input($email);
     if (!empty($email)) {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error = $error . "Die angegebene E-Mail Adresse ist ungültig.<br>";

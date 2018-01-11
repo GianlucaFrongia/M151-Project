@@ -3,10 +3,18 @@
 	//Datenbankverbindung einfügen
     include("./../../database/database.php");
 
+    //Werte trimmen und auf richtigkeit prüfen
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+    
 	//Variabeln auslesen und initialisieren
     $error = "";
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $username = test_input($_POST["username"]);
+    $password = test_input($_POST["password"]);
 
 	//Username prüfen
     if (empty($username)) {
