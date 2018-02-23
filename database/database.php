@@ -7,7 +7,6 @@
 
     $mysqli = mysqli_connect($_db_host, $_db_username, $_db_passwort, $_db_database);
 
-	//Verbindung prüfen
     if (!$mysqli) {
         die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
     } else {

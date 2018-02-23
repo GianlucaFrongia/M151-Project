@@ -1,61 +1,61 @@
 $(document).ready(function(){
-	
+
 	//Mögliche Errormeldung ausblenden
 	$("#error").fadeTo("slow", 0);
 
 	//Zur Login-Seite wechseln
 	function goToLogin(event) {
-		
+
 		//Normales Buttonevent verhindern, Seite ausblenden
 		event.preventDefault();
 		$("#pageContent").fadeOut("fast", function() {
-			
+
 			//Ladegrafik einblenden, Seite laden
 			$(".loadScreen").fadeTo("fast", 1);
 			$("#pageContent").load("modul/login.php", function() {
-				
+
 				//Ladegrafik ausblenden, Seite anzeigen
 				$(".loadScreen").fadeTo("fast", 0, function() {
 					$("#pageContent").fadeIn("fast");
 				});
-				
+
 			});
-			
+
 		});
-		
+
 	}
-	
+
 	//Beim Klicken auf den "Einloggen" Link Seite wechseln
 	$("#gotoLogin").click(function() {
 		goToLogin();
 	});
-	
+
 	//Beim klicken des "Registrieren"-Buttons soll der User registriert werden
 	$("#register").click(function(event) {
-		
+
 		//Normales Buttonevent verhindern
 		event.preventDefault();
-		
+
 		//Mögliche Errormeldung ausblenden
 		$("#error").fadeTo("fast", 0, function() {
-			
+
 			//Variabeln initialisieren bzw. auslesen
 			var error = "";
-	
+
 			var username = $("#fusername").val();
 			var password = $("#fpassword").val();
 			var password2 = $("#fpassword2").val();
 			var firstname = $("#ffirstname").val();
 			var lastname = $("#flastname").val();
 			var email = $("#femail").val();
-			
+
 			//Variabeln zur Überprüfung definieren
 			var upperCase = new RegExp("[A-Z]");
 			var lowerCase = new RegExp("[a-z]");
 			var numbers = new RegExp("[0-9]");
 			var emailAt = new RegExp("[@]");
 			var emailDot = new RegExp("[.]");
-	
+
 			//Benutzernamen prüfen (auf länge), oder Errormeldung zurückgeben
 			if (username.length > 30) {
 				error = error + "Der Benutzername ist zu lang (Max. 30 Zeichen).<br/>";
@@ -69,7 +69,7 @@ $(document).ready(function(){
 				}
 			}
 			//Benutzernamen prüfen ende
-	
+
 			//Passwörter püfen (auf Länge, Inhalt und Gleichheit), oder Errormeldung zurückgeben
 			if (password.length < 8) {
 				if (password.length == 0) {
@@ -87,7 +87,7 @@ $(document).ready(function(){
 				}
 			}
 			//Passwörter prüfen ende
-	
+
 			//Vor- und Nachname prüfen (auf länge), oder Errormeldung zurückgeben
 			if (firstname.length > 30) {
 				error = error + "Der Vorname ist zu lang (Max. 30 Zeichen).<br/>";
@@ -100,7 +100,7 @@ $(document).ready(function(){
 					}
 				}
 			}
-			
+
 			if (lastname.length > 30) {
 				error = error + "Der Nachname ist zu lang (Max. 30 Zeichen).<br/>";
 			} else {
@@ -113,7 +113,7 @@ $(document).ready(function(){
 				}
 			}
 			//Vor- und Nachname prüfen ende
-	
+
 			//E-Mail überprüfen (auf Länge und Inhalt), oder Errormeldung zurückgeben
 			if (email.length > 50) {
 				error = error + "Die E-Mail Adresse ist zu lang (Max. 50 Zeichen).<br/>";
@@ -127,12 +127,12 @@ $(document).ready(function(){
 				}
 			}
 			//E-Mail überprüfen ende
-	
+
 			//Anfrage an Server schicken wenn kein Error besteht, ansonsten Errormeldung ausgeben
 			if (error) {
 				$("#error").html(error).fadeTo("slow", 1);
 			} else {
-				
+
 				//Daten zur Serverüberprüfung an .php senden und möglicherweise User registrieren
 				$.ajax({
 					method: "POST",
@@ -147,27 +147,30 @@ $(document).ready(function(){
 							$("#pageContent").fadeOut("slow", function() {
 								$("#pageContent").html('<div class="alert alert-success"><strong>Registriert!</strong> Sie können sich nun mit dem Benutzernamen "' + username + '" einloggen.</div>');
 								$("#pageContent").fadeIn("slow").delay(500).fadeOut("slow", function(){
-									
+
 									$(".loadScreen").fadeTo("fast", 1);
 									$("#pageContent").load("modul/login.php", function() {
-										
+
 										//Ladegrafik ausblenden, Seite anzeigen, Benutzername-Feld füllen
 										$(".loadScreen").fadeTo("fast", 0, function() {
 											$("#fusername").val(username);
 											$("#pageContent").fadeIn("fast");
 										});
-										
+
 									});
-									
+
 								});
 							});
 						}
 					}
+					error: function(req, textStatus, errorThrown) {
+				        alert('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
+				    }
 				});
-				
+
 			}
-			
+
 		});
 	});
-	
+
 });
