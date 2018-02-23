@@ -162,7 +162,7 @@ $(document).ready(function(){
 								});
 							});
 						}
-					}
+					},
 					error: function(req, textStatus, errorThrown) {
 				        alert('Ooops, something happened: ' + textStatus + ' ' +errorThrown);
 				    }
