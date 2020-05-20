@@ -8,8 +8,6 @@
  <img src="img/logo500.png">
 </p>
 
-<h3 align="center"> Elia Reutlinger, Gianluca Frongia & Valentino Rusconi</h3> 
-
 ### Inhaltsverzeichnis
 
 1. Inhalt des Projektes	
